@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+	
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="woodward journal, the woodward journal, news, current affairs, activity, commerce, group, report, technology">	
+  <title>Woodward Journal: Breaking News, Opinions, Analysis & Multimedia | The Woodward Journal</title>
+  <meta name="description" content="The Woodward Journal offers Breaking & World News Headlines and updates covering of Latest & Top Stories of World & India. Find & Read Multimedia, Reviews, Analysis, Perspective & Opinion on Economics, Sports, Movies, Entertainment, Politics, Science and Tech, Gender, Culture and Coronavirus Updates at Woodward Journal.">
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Woodward Journal: Breaking News, Opinions, Analysis & Multimedia | The Woodward Journal" />
+  <meta property="og:description" content="The Woodward Journal offers Breaking & World News Headlines and updates covering of Latest & Top Stories of World & India. Find & Read Multimedia, Reviews, Analysis, Perspective & Opinion on Economics, Sports, Movies, Entertainment, Politics, Science and Tech, Gender, Culture and Coronavirus Updates at Woodward Journal." />
+  <meta property="og:image" content="http://www.woodwardjournal.com/img/WJ-black.png" />
+  <meta property="og:url" content="http://www.woodwardjournal.com" />
+  <meta property="og:type" content="website" />
+  <meta property="fb:app_id" content="537475883620164" />
+	
+	
+	<!-- Instant Articles -->
+	<meta property="fb:pages" content="105048837750924" />
+	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166316504-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-166316504-1');
+</script>
+
+	
+  <!--Google AdSense Code-->
+  <script data-ad-client="ca-pub-1528764229052273" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700%7CSource+Sans+Pro:400,600,700' rel='stylesheet'>
+
+  <!-- Css -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/font-icons.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/colors/gray.css" />
+
+  <!-- Favicons -->
+<!-- <link rel="icon" href="/img/WJ-black.png" id="light-scheme-icon"> -->
+<!-- <link rel="icon" href="/img/WJ-white.png" id="dark-scheme-icon"> -->
+	
+<link rel="icon" href="/img/WJ-black.png" media="(prefers-color-scheme:no-preference)">
+<link rel="icon" href="/img/WJ-white.png"  media="(prefers-color-scheme:dark)">
+<link rel="icon" href="/img/WJ-black.png" media="(prefers-color-scheme:light)">
+
+  <!-- Lazyload (must be placed in head in order to work) -->
+  <script src="/js/lazysizes.min.js"></script>
+	
+<!-- TinyMCE	 -->
+  <script src="https://cdn.tiny.cloud/1/dt7kdimr6ofv3tovvgncq974gs0tqd78zvglfndhcfg22srm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Twitter Cards -->
+	
+</head>
+	
+<%
+	var news = [];
+	delinews.forEach(function(post){
+		if (post.category == "news"){
+			news.push(post);
+		}
+	})
+		  
+	var opinion = [];
+	delinews.forEach(function(post){
+		if (post.category == "opinion"){
+			opinion.push(post);
+		}
+	})
+		  
+	var elrond = [];
+	delinews.forEach(function(post){
+		if (post.category == "elrond"){
+			elrond.push(post);
+		}
+	})
+		  
+	var column = [];
+	delinews.forEach(function(post){
+		if (post.category == "column"){
+			column.push(post);
+		}
+	})
+		  
+	var analysis = [];
+	delinews.forEach(function(post){
+		if (post.category == "analysis"){
+			analysis.push(post);
+		}
+	})
+		  
+	var history = [];
+	delinews.forEach(function(post){
+		if (post.category == "history"){
+			history.push(post);
+		}
+	})
+		  
+		  
+%>
+
+<body class="bg-light style-default">
+
+	<!-- Facebook SDK -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+
+
+  <!-- Bg Overlay -->
+  <div class="content-overlay"></div>
+
+  <!-- Sidenav -->    
+  <header class="sidenav" id="sidenav">
+
+	<!-- close -->
+	<div class="sidenav__close">
+	  <button class="sidenav__close-button" id="sidenav__close-button" aria-label="close sidenav">
+		<i class="ui-close sidenav__close-icon"></i>
+	  </button>
+	</div>
+
+	<!-- Nav -->
+	<nav class="sidenav__menu-container">
+	  <ul class="sidenav__menu" role="menubar">
+		<li>
+		  <a href="/" class="sidenav__menu-url">HOME</a>
+		</li>
+		<!-- Categories -->
+		<li>
+		  <a href="/category/news" class="sidenav__menu-url">NEWS</a>
+		</li>
+		<li>
+		  <a href="/category/opinion" class="sidenav__menu-url">OPINION</a>
+		</li>
+		<li>
+		  <a href="/category/perspective" class="sidenav__menu-url">PERSPECTIVE</a>
+		</li>
+		<li>
+		  <a href="/category/analysis" class="sidenav__menu-url">ANALYSIS</a>
+		</li>
+		<li>
+		  <a href="/category/report" class="sidenav__menu-url">REPORT</a>
+		</li>
+		<li>
+		  <a href="/category/review" class="sidenav__menu-url">REVIEW</a>
+		</li>
+		<li>
+		  <a href="/category/history" class="sidenav__menu-url">HISTORY</a>
+		</li>
+		<li>
+		  <a href="/category/column" class="sidenav__menu-url">COLUMN</a>
+		</li>
+        <li>
+          <a href="#" class="sidenav__menu-url">EXPLORE</a>
+          <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
+          <ul class="sidenav__menu-dropdown">
+            <li><a href="/tag/world" class="sidenav__menu-url">WORLD</a></li>
+            <li><a href="/tag/india" class="sidenav__menu-url">INDIA</a></li>
+            <li><a href="/tag/covid19" class="sidenav__menu-url">CORONAVIRUS</a></li>
+            <li><a href="/tag/business" class="sidenav__menu-url">BUSINESS</a></li>
+            <li><a href="/tag/sports" class="sidenav__menu-url">SPORTS</a></li>
+            <li><a href="/tag/arts-entertainment" class="sidenav__menu-url">ART & ENTERTAINMENT</a></li>
+            <li><a href="/tag/science" class="sidenav__menu-url">SCIENCE</a></li>
+            <li><a href="/tag/tech" class="sidenav__menu-url">TECH</a></li>
+            <li><a href="/tag/lifestyle" class="sidenav__menu-url">LIFESTYLE</a></li>
+            <li><a href="/tag/food" class="sidenav__menu-url">FOOD</a></li>
+          </ul>
+        </li>
+		<li>
+		  <a href="/category/elrond" class="sidenav__menu-url">ELROND FOUNDATION</a>
+		</li>
+	  </ul>
+	</nav>
+
+	<div class="socials sidenav__socials"> 
+	  <a class="social social-facebook" href="https://www.facebook.com/thewoodwardjournal" target="_blank" aria-label="facebook">
+		<i class="ui-facebook"></i>
+	  </a>
+	  <a class="social social-twitter" href="https://twitter.com/thewwjournal?s=20" target="_blank" aria-label="twitter">
+		<i class="ui-twitter"></i>
+	  </a>
+	  <a class="social social-instagram" href="https://www.instagram.com/woodwardjournal/" target="_blank" aria-label="instagram">
+		<i class="ui-instagram"></i>
+	  </a>
+	</div>
+  </header> <!-- end sidenav -->
+
+  <main class="main oh" id="main">
+
+    <!-- Header -->
+    <header class="header d-lg-block d-none">
+      <div class="container">
+        <div class="flex-parent">
+      
+          <!-- Menu -->
+          <nav class="flex-child header__menu d-none d-lg-block">
+            <ul class="header__menu-list">
+            </ul>
+          </nav>
+			<!-- end menu -->
+
+          <div class="flex-child text-center">
+            <!-- Logo -->
+            <a href="/" class="logo">
+              <img class="logo__img" src="/img/logo.png" srcset="/img/logo.png 1x, /img/logo-2x.png 2x" alt="logo">
+            </a>
+          </div>
+
+          <!-- Socials -->
+          <div class="flex-child">
+            <div class="socials socials--nobase socials--dark justify-content-end"> 
+			  <a class="social social-facebook" href="https://www.facebook.com/thewoodwardjournal" target="_blank" aria-label="facebook">
+				<i class="ui-facebook"></i> 
+			  </a>
+			  <a class="social social-twitter" href="https://twitter.com/thewwjournal?s=20" target="_blank" aria-label="twitter">
+				<i class="ui-twitter"></i> 
+			  </a>
+			  <a class="social social-instagram" href="https://www.instagram.com/woodwardjournal/" target="_blank" aria-label="instagram">
+				<i class="ui-instagram"></i> 
+			  </a>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- end container -->
+    </header> <!-- end header -->   
+
+    <!-- Navigation -->
+    <header class="nav nav--1">
+      <div class="nav__holder nav--sticky">
+        <div class="container relative">
+          <div class="flex-parent">
+
+            <div class="flex-child">
+              <!-- Side Menu Button -->
+              <button class="nav-icon-toggle" id="nav-icon-toggle" aria-label="Open side menu">
+                <span class="nav-icon-toggle__box">
+                  <span class="nav-icon-toggle__inner"></span>
+                </span>
+              </button>
+            </div>            
+
+            <!-- Nav-wrap -->
+            <nav class="flex-child nav__wrap d-none d-lg-block">              
+              <ul class="nav__menu">
+				<li>
+				  <a href="/" class="sidenav__menu-url">HOME</a>
+				</li>
+				<!-- Categories -->
+				<li>
+				  <a href="/category/news" class="sidenav__menu-url">NEWS</a>
+				</li>
+				<li>
+				  <a href="/category/opinion" class="sidenav__menu-url">OPINION</a>
+				</li>
+				<li>
+				  <a href="/category/analysis" class="sidenav__menu-url">ANALYSIS</a>
+				</li>
+				<li>
+				  <a href="/category/review" class="sidenav__menu-url">REVIEW</a>
+				</li>
+				<li>
+				  <a href="/category/report" class="sidenav__menu-url">REPORT</a>
+				</li>
+				<li>
+				  <a href="/category/perspective" class="sidenav__menu-url">PERSPECTIVE</a>
+				</li>
+				<li>
+				  <a href="/category/elrond" class="sidenav__menu-url">ELROND FOUNDATION</a>
+				</li>
+              </ul> <!-- end menu -->
+            </nav> <!-- end nav-wrap -->
+
+            <!-- Logo Mobile -->
+            <a href="/" class="logo logo-mobile d-lg-none">
+              <img class="logo__img" src="/img/logo.png" srcset="/img/logo.png 1x, /img/logo-2x.png 2x" alt="logo">
+            </a>
+
+            <!-- Nav Right -->
+            <div class="flex-child">
+              <div class="nav__right">
+
+                <!-- Search -->
+                <div class="nav__right-item nav__search">
+                  <a href="#" class="nav__search-trigger" id="nav__search-trigger">
+                    <i class="ui-search nav__search-trigger-icon"></i>
+                  </a>
+                  <div class="nav__search-box" id="nav__search-box">
+                    <form action="/search" method="get" class="nav__search-form">
+                      <input type="text" name="search" placeholder="Search an article" class="nav__search-input">
+                      <button type="submit" class="search-button btn btn-lg btn-color btn-button">
+                        <i class="ui-search nav__search-icon"></i>
+                      </button>
+                    </form>
+                  </div>                
+                </div>             
+
+              </div> <!-- end nav right -->
+            </div>            
+          
+          </div> <!-- end flex-parent -->
+
+        </div>          
+      </div>
+    </header> <!-- end navigation -->
+	  
+	  
+	  
+
+    <div class="main-container container" id="main-container">   
+      <!-- Content -->
+      <div class="row">
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-72">
+          <!-- <h1 class="page-title">Search results for: <%= filter.toUpperCase()%></h1> -->
+			  <% posts.forEach(function(post){ %>
+				  <article class="entry card post-list">
+					<div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(<%=post.image%>)">
+					  <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+					  <img src="<%=post.image%>" alt="<%=post.slug%>" class="entry__img d-none">
+					  <a href="/category/<%=post.category%>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%=post.category%></a>
+					</div>
+					  
+					<div class="entry__body post-list__body card__body">
+					  <div class="entry__header">
+						<h2 class="entry__title">
+						  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.title%></a>
+						</h2>
+						<ul class="entry__meta">
+						  <li class="entry__meta-author">
+							<span>by</span>
+							<a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+						  </li>
+						  <li class="entry__meta-date">
+							<%= post.date%>
+						  </li>
+						</ul>
+					  </div>
+					  <div class="entry__excerpt">
+						<p><%- post.content.replace(/<[^>]+>/g, '').slice(0, 250) %>...</p>
+						  <a class="read-more-button" href="/<%= post.category %>/<%= post.slug %>">Read More...</a>
+					  </div>
+					</div>
+				  </article>
+			  <% }) %>
+			
+			<% if (pages && pages >1){ %>
+			
+          <!-- Pagination -->
+          <nav class="pagination">
+			  <%if (current != 1) {%>
+			<a href="<%=path%>?page=<%= Number(current) - 1 %>" class="pagination__page"><i class="ui-arrow-left"></i></a>
+			  <%} %>
+				<% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
+				<% if (i !== 1) { %>
+				<span class="pagination__page pagination__page--current">...</span>
+				<% } %>
+				<% for (; i <= (Number(current) + 2) && i <= pages; i++) { %>
+				<% if (i == current) { %>
+				<span class="pagination__page pagination__page--current"><%= i %></span>
+				<% } else { %>
+				<a class="pagination__page" href="<%=path%>?page=<%= i %>"><%= i %></a>
+				<% } %>
+				<% if (i == Number(current) + 2 && i < pages) { %>
+				<span class="pagination__page pagination__page--current">...</span>
+				<% } %>
+				<% } %>
+			  <% if (current != pages) {%>
+            <a href="<%=path%>?page=<%= Number(current) + 1 %>" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
+			  <% } %>
+          </nav>
+			
+			<% } %>
+        </div> <!-- end posts -->
+		  
+      </div> <!-- end content -->
+    </div> <!-- end main container -->
+
+    <footer class="footer footer--dark">
+      <div class="container">
+        <!-- <div class="footer__widgets">
+          <div class="footer__widgets-top">
+            <div class="row justify-content-between align-items-center">
+              <div class="col-md-4">
+                <a href="/">
+                  <img src="/img/logo.png" srcset="/img/logo-white.png 1x, /img/logo-2x-white.png 2x" class="logo__img" alt="logo">
+                </a>
+              </div>
+
+              <div class="col-md-6">              
+                <div class="socials socials--large socials--nobase justify-content-md-end">
+                  <a href="https://www.facebook.com/thewoodwardjournal" class="social social-facebook" aria-label="facebook"><i class="ui-facebook"></i></a>
+                  <a href="https://twitter.com/TheWoodwardpost?s=20" class="social social-twitter" aria-label="twitter"><i class="ui-twitter"></i></a>
+                  <a href="https://www.instagram.com/woodwardjournal/" class="social social-instagram" aria-label="instagram"><i class="ui-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- end footer widgets -->
+      </div> <!-- end container -->
+
+      <div class="footer__bottom footer__bottom--dark">
+        <div class="container text-center">
+          <ul class="footer__nav-menu footer__nav-menu--1">
+            <li><a href="/leadership">Leadership</a></li>
+            <li><a href="/contribute">Contribute</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/licensed-images">Licensed Images</a></li>
+            <li><a href="/terms">Terms and Conditions</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+          </ul>
+          <p class="copyright">
+			  The Woodward Journal is strictly for informational and entertainment purposes. Our website is no way connected or affiliated with any news or media website which is listed as source in the articles. The views and opinions expressed here are in no way representative of any concerned organisation. All images on this website are the property of their respective owners and we do not own any content that is published under the heading of 'News Sources & Associated Press'. | Trademarked and Copyright ©️ <script>var date = new Date; document.write(date.getFullYear())</script> The Woodward Journal | <a href="mailto:support@woodwardjournal.com"> support@woodwardjournal.com</a> <b>This is a test</b>
+			</p>   
+        </div>            
+      </div> <!-- end footer bottom -->
+    </footer> <!-- end footer -->
+
+    <div id="back-to-top">
+      <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+    </div>
+
+  </main> <!-- end main-wrapper -->
+
+  
+  <!-- jQuery Scripts -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/easing.min.js"></script>
+  <script src="/js/owl-carousel.min.js"></script>
+  <script src="/js/flickity.pkgd.min.js"></script>
+  <script src="/js/twitterFetcher_min.js"></script>
+  <script src="/js/jquery.newsTicker.min.js"></script>  
+  <script src="/js/modernizr.min.js"></script>
+  <script src="/js/scripts.js"></script>
+
+</body>
+</html>

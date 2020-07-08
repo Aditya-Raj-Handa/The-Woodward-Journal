@@ -1,0 +1,188 @@
+<%- include("../partials/header") %>
+
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a href="/" class="breadcrumbs__url">Home</a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">
+          New Post
+        </li>
+      </ul>
+    </div>
+
+    <!-- ##### New Area Start ##### -->
+    <section class="contact-area mb-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 col-lg-8">
+                    <!-- Section Heading -->
+                    <div class="section-heading style-2">
+                        <h4>New Post</h4>
+                        <div class="line"></div>
+                    </div>
+                    <!-- Contact Form Area -->
+                    <div class="contact-form-area mt-50">
+						<% if (user.username == "admin") {%>
+                        <form action="/" method="post" enctype="multipart/form-data">
+							<div class = "row">
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="name">Title*</label>
+										<input type="text" class="form-control" name="delinews[title]" placeholder="title" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Image*</label>
+										<input type="file" class="form-control" name = "image" accept="image/*" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">News Source & Image Courtesy: *</label>
+										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="message">Content*</label>
+										<textarea name="delinews[content]" class="form-control" cols="30" rows="10" placeholder="content"></textarea>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Author* (If more than one author: Each author must be seperated by a comma and no spaces around the comma)</label>
+										<input type="text" class="form-control" name = "delinews[author]" placeholder = "author" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">category*</label>
+										<select name="delinews[category]" required>
+											<option value="analysis">Analysis</option>
+											<option value="history">History</option>
+											<option value="news">News</option>
+											<option value="review">Review</option>
+											<option value="report">Report</option>
+											<option value="perspective">Perspective</option>
+											<option value="opinion">Opinion</option>
+											<option value="elrond">Elrond</option>
+											<option value="column">Column</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="email">Tags (Each tag must be seperated by a comma and no spaces around the comma)*</label>
+										<input type="text" class="form-control" name = "delinews[tag]" placeholder = "tags" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-foode" type="submitbtn">Send Now</button>
+								</div>
+							</div>
+                        </form>
+						<% } else {%>
+                        <form action="/" method="post" enctype="multipart/form-data">
+							<div class = "row">
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="name">Title*</label>
+										<input type="text" class="form-control" name="delinews[title]" placeholder="title" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Image*</label>
+										<input type="file" class="form-control" name = "image" accept="image/*" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">News Source & Image Courtesy: *</label>
+										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="message">Content*</label>
+										<textarea name="delinews[content]" class="form-control" cols="30" rows="10" placeholder="content"></textarea>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<!-- <label for="email">Author*</label> -->
+										<input type="hidden" class="form-control" name = "delinews[author]" placeholder = "author" value = "Woodward Journal Staff" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<!-- <label for="email">Author Designation*</label> -->
+										<input type="hidden" class="form-control" name = "delinews[authorDesignation]" placeholder = "designation" value = "News Sources & Associated Press" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<!-- <label for="email">Category*</label> -->
+										<input type="hidden" class="form-control" name = "delinews[category]" placeholder = "designation" value = "news" required>
+									</div>
+								</div>
+								<!-- <div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">Category*</label>
+										<select name="delinews[category]" required>
+											<option value="analysis">Analysis</option>
+											<option value="history">History</option>
+											<option value="news">News</option>
+											<option value="review">Review</option>
+											<option value="report">Report</option>
+											<option value="perspective">Perspective</option>
+											<option value="opinion">Opinion</option>
+											<option value="elrond">Elrond</option>
+											<option value="column">Column</option>
+										</select>
+									</div>
+								</div> -->
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">Section*</label>
+										<select name="delinews[tag]" required>
+											<option value="world">World</option>
+											<option value="india">India</option>
+											<option value="sports">Sports</option>
+											<option value="science">Science</option>
+											<option value="tech">Tech</option>
+											<option value="arts-entertainment">Arts & Entertainment</option>
+											<option value="lifestyle">Lifestyle</option>
+											<option value="food">Food</option>
+											<option value="covid19">COVID19</option>
+											<option value="business">Business</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-foode" type="submitbtn">Send Now</button>
+								</div>
+							</div>
+                        </form>
+						<% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### New Area End ##### -->
+
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+  </script>
+
+
+<%- include("../partials/footer") %>

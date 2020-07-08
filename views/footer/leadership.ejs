@@ -1,0 +1,291 @@
+<%- include("../partials/header") %>
+
+
+<% 
+	
+	var sarthakSrivastava = []
+	authors.forEach(function(author){
+		if (author.slug == "sarthak-srivastava"){
+			sarthakSrivastava.push(author);
+		}
+	});
+
+	var adityaRajHanda = []
+	authors.forEach(function(author){
+		if (author.name == "Aditya Raj Handa"){
+			adityaRajHanda.push(author);
+		}
+	});
+
+	var sakshamGadia = []
+	authors.forEach(function(author){
+		if (author.name == "Saksham Gadia"){
+			sakshamGadia.push(author);
+		}
+	});
+
+	var nehalLala = []
+	authors.forEach(function(author){
+		if (author.name == "Nehal Lala"){
+			nehalLala.push(author);
+		}
+	});
+
+	var nakaishaBajaj = []
+	authors.forEach(function(author){
+		if (author.name == "Nakaisha Bajaj"){
+			nakaishaBajaj.push(author);
+		}
+	});
+
+	var arshiyaMahajan = []
+	authors.forEach(function(author){
+		if (author.name == "Arshiya Mahajan"){
+			arshiyaMahajan.push(author);
+		}
+	});
+
+	var divijHanda = []
+	authors.forEach(function(author){
+		if (author.name == "Divij Handa"){
+			divijHanda.push(author);
+		}
+	});
+
+	var manitBansal = []
+	authors.forEach(function(author){
+		if (author.name == "Manit Bansal"){
+			manitBansal.push(author);
+		}
+	});
+
+%>
+
+
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <!-- <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 my-2">
+                    <img src="img/core-img/breadcrumb-line.png" alt="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Leadership</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Blog Content Area Start ##### -->
+    <section class="blog-content-area p-4 m-4">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= sarthakSrivastava[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= sarthakSrivastava[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= sarthakSrivastava[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= sarthakSrivastava[0].slug %>" class="entry__meta-category"><%= sarthakSrivastava[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= sarthakSrivastava[0].slug %>"><%= sarthakSrivastava[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= adityaRajHanda[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= adityaRajHanda[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= adityaRajHanda[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= adityaRajHanda[0].slug %>" class="entry__meta-category"><%= adityaRajHanda[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= adityaRajHanda[0].slug %>"><%= adityaRajHanda[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= sakshamGadia[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= sakshamGadia[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= sakshamGadia[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= sakshamGadia[0].slug %>" class="entry__meta-category"><%= sakshamGadia[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= sakshamGadia[0].slug %>"><%= sakshamGadia[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= nehalLala[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= nehalLala[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= nehalLala[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= nehalLala[0].slug %>" class="entry__meta-category"><%= nehalLala[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= nehalLala[0].slug %>"><%= nehalLala[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= nakaishaBajaj[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= nakaishaBajaj[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= nakaishaBajaj[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= nakaishaBajaj[0].slug %>" class="entry__meta-category"><%= nakaishaBajaj[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= nakaishaBajaj[0].slug %>"><%= nakaishaBajaj[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= arshiyaMahajan[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= arshiyaMahajan[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= arshiyaMahajan[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= arshiyaMahajan[0].slug %>" class="entry__meta-category"><%= arshiyaMahajan[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= arshiyaMahajan[0].slug %>"><%= arshiyaMahajan[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= divijHanda[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= divijHanda[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= divijHanda[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= divijHanda[0].slug %>" class="entry__meta-category"><%= divijHanda[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= divijHanda[0].slug %>"><%= divijHanda[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+                <div class="col-12 my-2 col-sm-3">
+					<article class="entry">
+					  <div class="entry__img-holder">
+						<a href="/people/<%= manitBansal[0].slug %>">
+						  <div class="thumb-container thumb-65">
+							<img data-src="<%= manitBansal[0].image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= manitBansal[0].slug %>">
+						  </div>
+						</a>
+					  </div>
+
+					  <div class="entry__body">
+						<div class="entry__header">
+						  <ul class="entry__meta">
+							<li>
+							  <a href="/people/<%= manitBansal[0].slug %>" class="entry__meta-category"><%= manitBansal[0].authorDesignation %></a>
+							</li>
+						  </ul>                     
+						  <h2 class="entry__title">
+							<a href="/people/<%= manitBansal[0].slug %>"><%= manitBansal[0].name %></a>
+						  </h2>                      
+						</div>
+					  </div>
+					</article>
+                </div>
+            </div>
+            <div class="row justify-content-center text-center">
+				<div class="col-12 my-4 col-sm-6">
+					<a href="/team"><p><b>The Woodward Journal Team</b></a>
+				</div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Blog Content Area End ##### -->
+
+
+<%- include("../partials/footer") %>
