@@ -42,6 +42,7 @@ router.post("/people", middleware.isAdmin, upload.single('image'), function(req,
 		req.body.author.image = result.secure_url;
 		req.body.author.imageId = result.public_id;
 		// create new post
+		req.body.author.name = req.body.author.name.trim();
 		var newPost = req.body.author;
 		Author.create(newPost, function(err, newPost){
 			if(err){
@@ -81,7 +82,7 @@ router.put("/people/:slug", middleware.isAdmin, upload.single('image'), function
                   return res.redirect("back");
               }
             }
-            foundAuthor.name = req.body.author.name;
+            foundAuthor.name = req.body.author.name.trim();
             foundAuthor.bio = req.body.author.bio;
             foundAuthor.mail = req.body.author.mail;
             foundAuthor.authorDesignation = req.body.author.authorDesignation;
