@@ -20,6 +20,14 @@ if (user){
 <%	}
 }
 %>
+<% if (category) {%>
+	<!-- Ad Banner 970 -->
+	<div class="text-center pb-48">
+		<a href="">
+			<img class="category-header-img" src="/img/cat_banners/<%=posts[0].category%>.png" width="100%" alt="<%=posts[0].category%>-banner">
+		</a>
+	</div> 
+<% } %>
 
     <div class="main-container container" id="main-container">   
 		
@@ -53,7 +61,11 @@ if (user){
                   <ul class="entry__meta">
                     <li class="entry__meta-author">
                       <span>by</span>
-                      <a href="#"><%=post.author%></a>
+						<% if(post.author.length>1) { %>
+                    <a href="#"><%=post.author%></a>
+						<% } else { %>
+					<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+						<% } %>
                     </li>
                     <li class="entry__meta-date">
                       <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
@@ -96,8 +108,12 @@ if (user){
                   <a href="/category/<%= post.category %>" class="entry__meta-category entry__meta-category--label"><%= post.category %></a>
                   <ul class="entry__meta">
                     <li class="entry__meta-author">
-                      <span>by</span>
-                      <a href="#"><%=post.author%></a>
+						<span>by</span>
+						<% if(post.author.length>1) { %>
+							<a href="#"><%=post.author%></a>
+						<% } else { %>
+							<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+						<% } %>
                     </li>
                     <li class="entry__meta-date">
                       <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
@@ -134,27 +150,26 @@ if (user){
         </div>
     </section> <!-- end featured posts grid -->
 			
-			<div id="338136753">
-				<script type="text/javascript">
-					try {
-						window._mNHandle.queue.push(function (){
-							window._mNDetails.loadTag("338136753", "728x90", "338136753");
-						});
-					}
-					catch (error) {}
-				</script>
-			</div>
+			<!-- <script type="text/javascript">
+			amzn_assoc_placement = "adunit0";
+			amzn_assoc_tracking_id = "woodwardjourn-20";
+			amzn_assoc_ad_mode = "search";
+			amzn_assoc_ad_type = "smart";
+			amzn_assoc_marketplace = "amazon";
+			amzn_assoc_region = "US";
+			amzn_assoc_default_search_phrase = "Books";
+			amzn_assoc_default_category = "All";
+			amzn_assoc_linkid = "cae26d3a094eb1c0ad77260c1f4e59cf";
+			amzn_assoc_design = "in_content";
+			</script>
+			<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script> -->
 			
-			<div id="amzn-assoc-ad-92bad284-3004-4441-bafd-09a689e7a184"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=92bad284-3004-4441-bafd-09a689e7a184"></script>
-			
-			<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=92bad284-3004-4441-bafd-09a689e7a184"></script>
-			
-			  <!-- Ad Banner 970 -->
-			  <div class="text-center pb-48">
-				<a href="https://twitter.com/thewoodwardjo" target="_blank">
-				  <img src="/img/CTAs/twitter.jpg" alt="twitter-call-to-action">
+			<!-- Ad Banner 970 -->
+			<div class="text-center pb-48">
+				<a href="https://instagram.com/woodwardjournal" target="_blank">
+					<img src="/img/CTAs/ig.jpg" alt="instagram-call-to-action">
 				</a>
-			  </div> 
+			</div> 
 
 
       <!-- Content -->
@@ -178,7 +193,11 @@ if (user){
 						<ul class="entry__meta">
 						  <li class="entry__meta-author">
 							<span>by</span>
-							<a href="#"><%=post.author%></a>
+							<% if(post.author.length>1) { %>
+								<a href="#"><%=post.author%></a>
+							<% } else { %>
+								<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+							<% } %>
 						  </li>
 						  <li class="entry__meta-date">
 							<%= post.date%> - <%= moment(post.createdAt).fromNow() %>

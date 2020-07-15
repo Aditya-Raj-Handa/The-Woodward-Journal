@@ -99,7 +99,11 @@ var highlights=[];
                 <ul class="entry__meta">
                   <li class="entry__meta-author">
                     <span>by</span>
-                    <a href="#"><%=post.author%></a>
+					<% if(post.author.length>1) { %>
+						<a href="#"><%=post.author%></a>
+					<% } else { %>
+						<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+					<% } %>
                   </li>
                   <li class="entry__meta-date">
                     <%= post.date %> - <%= moment(post.createdAt).fromNow() %>

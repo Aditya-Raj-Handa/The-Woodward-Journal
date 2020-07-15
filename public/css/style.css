@@ -4969,3 +4969,26 @@ dd {
 		font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */
+
+.category-header-img{
+	height: 14em;
+}
+@media only screen and (max-width: 575px) {
+	.category-header-img{
+		height: 7em;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

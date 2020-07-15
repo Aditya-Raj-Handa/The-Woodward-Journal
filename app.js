@@ -53,6 +53,7 @@ Delinews.find({}).sort({_id:-1}).exec(function(err, delinews){
 });
 
 app.locals.post=null;
+app.locals.category=null;
 app.locals.author=null;
 app.locals.pageTitle=null;
 app.locals.search=null;
@@ -123,6 +124,7 @@ app.get("/category/:category", function(req, res){
 			} else {
 				res.render("index", {
 					posts:delinewsPosts,
+					category:true,
 					filter:req.params.category,
 					pageTitle:req.params.category,
 					path:"/category/"+req.params.category,

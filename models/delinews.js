@@ -67,6 +67,6 @@ function slugify(text) {
       .replace(/\-\-+/g, '-')      // Replace multiple - with single -
       .replace(/^-+/, '')          // Trim - from start of text
       .replace(/-+$/, '')          // Trim - from end of text
-      .substring(0, 75);           // Trim at 75 characters
+      .substring(0, 200);          // Trim at 200 characters
     return slug // Add 4 random digits to improve uniqueness
 }
