@@ -155,29 +155,42 @@ function slugify(text) {
 						<% } %>
 				              
               <!-- Prev / Next Post -->
-              <nav class="entry-navigation">
-                <div class="clearfix">
+              <!-- <nav class="entry-navigation">
+                <div class="clearfix"> -->
 					<% if(prev) {%>
-                  <div class="entry-navigation--left">
+                  <!-- <div class="entry-navigation--left">
                     <i class="ui-arrow-left"></i>
                     <span class="entry-navigation__label">Previous Post</span>
                     <div class="entry-navigation__link">
                       <a href="/<%= prev.category %>/<%if(prev.slug){%><%=prev.slug%><%} else {%><%= prev._id %><%}%>" rel="prev"><%= prev.title %></a>
                     </div>
-                  </div>
+                  </div> -->
 					<% } %>
 					<% if (next) {%>
-                  <div class="entry-navigation--right">
+                  <!-- <div class="entry-navigation--right">
                     <span class="entry-navigation__label">Next Post</span>
                     <i class="ui-arrow-right"></i>
                     <div class="entry-navigation__link">
                       <a href="/<%= next.category %>/<%if(next.slug){%><%=next.slug%><%} else {%><%= next._id %><%}%>" rel="next"><%= next.title %></a>
                     </div>
-                  </div>
+                  </div> -->
 					<% } %>
-                </div>
-              </nav>
+                <!-- </div>
+              </nav> -->
 				
+			<script type="text/javascript">
+			amzn_assoc_placement = "adunit0";
+			amzn_assoc_tracking_id = "woodwardjourn-20";
+			amzn_assoc_ad_mode = "search";
+			amzn_assoc_ad_type = "smart";
+			amzn_assoc_marketplace = "amazon";
+			amzn_assoc_region = "US";
+			amzn_assoc_default_search_phrase = "Books";
+			amzn_assoc_default_category = "All";
+			amzn_assoc_linkid = "cae26d3a094eb1c0ad77260c1f4e59cf";
+			amzn_assoc_design = "in_content";
+			</script>
+			<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 				
 			  <section class="section related-posts mt-40 mb-0">
 				<div class="title-wrap title-wrap--line title-wrap--pr">

@@ -9,10 +9,10 @@
 	<% if (post) {%>	
 
 	<title><%= post.title %> | Woodward Journal</title>
-	<meta name="description" content="<%= post.content.replace(/<[^>]+>/g, '').slice(0, 200) %>">
+	<meta name="description" content="<%- post.content.replace(/<[^>]+>/g, '').slice(0, 200) %>">
 	<!-- Open Graph Tags -->
 	<meta property="og:title" content="<%= post.title %> | Woodward Journal" />
-	<meta property="og:description" content="<%= post.content.replace(/<[^>]+>/g, '').slice(0, 200) %>" />
+	<meta property="og:description" content="<%- post.content.replace(/<[^>]+>/g, '').slice(0, 200) %>" />
 	<meta property="og:image" content="<%= post.image %>" />
 	<meta property="og:url" content="http://www.woodwardjournal.com/<%if(post.slug){%><%=post.slug%><%} else {%><%= post._id %><%}%>" />
 	<meta property="og:type" content="website" />
@@ -23,10 +23,10 @@
 	<title>
 		<%=author.name%> - <%= author.authorDesignation %> | The Woodward Journal
 	</title>
-	<meta name="description" content="<%=author.bio.replace(/<[^>]+>/g, '').slice(0, 200) %>">
+	<meta name="description" content="<%-author.bio.replace(/<[^>]+>/g, '').slice(0, 200) %>">
 	<!-- Open Graph Tags -->
 	<meta property="og:title" content="<%=author.name%> - <%= author.authorDesignation %> | The Woodward Journal" />
-	<meta property="og:description" content="<%=author.bio.replace(/<[^>]+>/g, '').slice(0, 200) %>" />
+	<meta property="og:description" content="<%-author.bio.replace(/<[^>]+>/g, '').slice(0, 200) %>" />
 	<meta property="og:image" content="<%=author.image%>" />
 	<meta property="og:url" content="http://www.woodwardjournal.com/people/<%=author.slug%>" />
 	<meta property="og:type" content="website" />
