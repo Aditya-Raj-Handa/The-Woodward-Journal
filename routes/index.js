@@ -78,6 +78,10 @@ router.get("/newsletter", function(req, res){
 	res.redirect("https://mailchi.mp/4555b4dfe837/the-woodward-journal-weekly-digest");
 });
 
+router.get("/IG", function(req, res){
+	res.redirect("https://linktr.ee/WoodwardJournal");
+});
+
 // //Register form
 // app.get("/register", middleware.isLoggedIn, function(req, res){
 // 	res.render("register");
