@@ -119,20 +119,20 @@ router.get("/people/:author", function(req, res){
 	var perPage = 10;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
-    Delinews.find({author:req.params.author}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
-        Delinews.countDocuments({author:req.params.author}).exec(function (err, count) {
+    Delinews.find({author:req.params.author, status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
+        Delinews.countDocuments({author:req.params.author, status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
             if (err) {
                 console.log(err);
-				res.redirect("error");
+				res.redirect("/error");
             } else {
 				if (count == 0){
 					Author.findOne({slug:req.params.author}).exec(function(err, foundAuthor){
 						if (foundAuthor!= null){
-							Delinews.find({author:foundAuthor.name}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPostsSlug) {
-								Delinews.countDocuments({author:foundAuthor.name}).exec(function (err, count) {
+							Delinews.find({author:foundAuthor.name, status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPostsSlug) {
+								Delinews.countDocuments({author:foundAuthor.name, status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
 									if (err) {
 										console.log(err)
-										res.redirect("error");
+										res.redirect("/error");
 									} else {
 										res.render("index", {
 											posts:delinewsPostsSlug,
@@ -147,11 +147,11 @@ router.get("/people/:author", function(req, res){
 								});
 							});
 						} else {
-							Delinews.find({authorSlug:req.params.author}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPostsSlug) {
-								Delinews.countDocuments({authorSlug:req.params.author}).exec(function (err, count) {
+							Delinews.find({authorSlug:req.params.author, status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPostsSlug) {
+								Delinews.countDocuments({authorSlug:req.params.author, status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
 									if (err) {
 										console.log(err)
-										res.redirect("error");
+										res.redirect("/error");
 									} else {
 										res.render("index", {
 											posts:delinewsPostsSlug,

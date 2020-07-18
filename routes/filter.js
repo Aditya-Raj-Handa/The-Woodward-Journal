@@ -10,8 +10,8 @@ router.get("/search", function(req, res){
     var pageNumber = pageQuery ? pageQuery : 1;
 	if (req.query.search){
 		const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-		Delinews.find({title:regex}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
-			Delinews.countDocuments({title:regex}).exec(function (err, count) {
+		Delinews.find({title:regex, status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
+			Delinews.countDocuments({title:regex, status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
 				if (err) {
 					console.log(err);
 				} else {
@@ -64,8 +64,8 @@ router.get("/archive", function(req, res){
 	var perPage = 30;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
-    Delinews.find({}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
-        Delinews.countDocuments({}).exec(function (err, count) {
+    Delinews.find({status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
+        Delinews.countDocuments({status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
             if (err) {
                 console.log(err);
             } else {
@@ -85,8 +85,8 @@ router.get("/category/:category", function(req, res){
 	var perPage = 10;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
-	Delinews.find({category:req.params.category}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
-		Delinews.countDocuments({category:req.params.category}).exec(function (err, count) {
+	Delinews.find({category:req.params.category, status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
+		Delinews.countDocuments({category:req.params.category, status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -108,8 +108,8 @@ router.get("/tag/:tag", function(req, res){
 	var perPage = 10;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
-    Delinews.find({tag:req.params.tag}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
-        Delinews.countDocuments({tag:req.params.tag}).exec(function (err, count) {
+    Delinews.find({tag:req.params.tag, status:{$nin:["draft", "finalDraft"]}}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, delinewsPosts) {
+        Delinews.countDocuments({tag:req.params.tag, status:{$nin:["draft", "finalDraft"]}}).exec(function (err, count) {
             if (err) {
                 console.log(err);
             } else {

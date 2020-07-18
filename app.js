@@ -48,7 +48,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-Delinews.find({}).sort({_id:-1}).exec(function(err, delinews){
+Delinews.find({status:{$nin:["draft", "finalDraft"]}}).sort({_id:-1}).exec(function(err, delinews){
 	app.locals.delinews = delinews;
 });
 
