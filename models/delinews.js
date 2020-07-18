@@ -16,6 +16,8 @@ var delinewsSchema = new mongoose.Schema({
 	content: String,
 	author: Array,
 	category: String,
+	department: String,
+	status: String,
 	date: String,
 	imgSource: String,
 	createdAt: {type:Date, default : Date.now},

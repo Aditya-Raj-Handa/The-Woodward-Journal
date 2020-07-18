@@ -54,6 +54,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
 		req.body.delinews.tag = req.body.delinews.tag.toLowerCase();
 		// req.body.delinews.tag = req.body.delinews.tag.replace(/ /g,'')
 		newPost.tag = req.body.delinews.tag.split(",");
+		newPost.author = req.body.delinews.author.trim();
 		newPost.author = req.body.delinews.author.split(",");
 		Delinews.create(newPost, function(err, newPost){
 			if(err){
@@ -79,6 +80,7 @@ router.put("/:slug", middleware.isAdmin, upload.single('image'), function(req, r
 	req.body.delinews.tag = req.body.delinews.tag.toLowerCase();
 	// req.body.delinews.tag = req.body.delinews.tag.replace(/ /g,'')
 	req.body.delinews.tag = req.body.delinews.tag.split(",");
+	req.body.delinews.author = req.body.delinews.author.trim();
 	req.body.delinews.author = req.body.delinews.author.split(",");
     Delinews.findOne({slug: req.params.slug}, async function(err, foundPost){
         if(err){

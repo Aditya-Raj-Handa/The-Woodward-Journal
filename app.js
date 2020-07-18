@@ -16,7 +16,6 @@ var Delinews       = require("./models/delinews"),
 	Author         = require("./models/author"),
 	User           = require("./models/user");
 
-
 mongoose.connect("mongodb+srv://AdityaRajHanda:iambatman@thedelination-wevuk.mongodb.net/delination_v3?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 // mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true });
 

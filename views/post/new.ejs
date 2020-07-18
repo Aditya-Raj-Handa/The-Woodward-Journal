@@ -42,8 +42,21 @@
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<label for="email">News Source & Image Courtesy: *</label>
+										<label for="email">News Source & Image Courtesy:</label>
 										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">department*</label>
+										<select name="delinews[department]" required>
+											<option value="department-1">Newsroom 1 - News</option>
+											<option value="department-2">Newsroom 2 - Movies, TV & Music</option>
+											<option value="department-3">Newsroom 3 - Elrond Foundation</option>
+											<option value="department-4">Newsroom 4 - OP-ED</option>
+											<option value="department-5">Newsroom 5 - Features</option>
+											<option value="department-6">Newsroom 6 - Special Projects</option>
+										</select>
 									</div>
 								</div>
 								<div class="col-12">
@@ -81,6 +94,83 @@
 									</div>
 								</div>
 								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[status]" value="published" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-foode" type="submitbtn">Send Now</button>
+								</div>
+							</div>
+                        </form>
+						<% } else if (user.username == "editor") {%>
+                        <form action="/" method="post" enctype="multipart/form-data">
+							<div class = "row">
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="name">Title*</label>
+										<input type="text" class="form-control" name="delinews[title]" placeholder="title" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Image*</label>
+										<input type="file" class="form-control" name = "image" accept="image/*" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">News Source & Image Courtesy:</label>
+										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">department*</label>
+										<select name="delinews[department]" required>
+											<option value="department-1">Newsroom 1 - News</option>
+											<option value="department-2">Newsroom 2 - Movies, TV & Music</option>
+											<option value="department-3">Newsroom 3 - Elrond Foundation</option>
+											<option value="department-4">Newsroom 4 - OP-ED</option>
+											<option value="department-5">Newsroom 5 - Features</option>
+											<option value="department-6">Newsroom 6 - Special Projects</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="message">Content*</label>
+										<textarea name="delinews[content]" class="form-control" cols="30" rows="10" placeholder="content"></textarea>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Author* (If more than one author: Each author must be seperated by a comma and no spaces around the comma)</label>
+										<input type="text" class="form-control" name = "delinews[author]" placeholder = "author" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">category*</label>
+										<select name="delinews[category]" required>
+											<option value="analysis">Analysis</option>
+											<option value="history">History</option>
+											<option value="news">News</option>
+											<option value="review">Review</option>
+											<option value="report">Report</option>
+											<option value="perspective">Perspective</option>
+											<option value="opinion">Opinion</option>
+											<option value="elrond">Elrond</option>
+											<option value="column">Column</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[status]" value="finalDraft" required>
+									</div>
+								</div>
+								<div class="col-12">
 									<button class="btn btn-foode" type="submitbtn">Send Now</button>
 								</div>
 							</div>
@@ -102,8 +192,21 @@
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<label for="email">News Source & Image Courtesy: *</label>
+										<label for="email">News Source & Image Courtesy:</label>
 										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">department*</label>
+										<select name="delinews[department]" required>
+											<option value="department-1">Newsroom 1 - News</option>
+											<option value="department-2">Newsroom 2 - Movies, TV & Music</option>
+											<option value="department-3">Newsroom 3 - Elrond Foundation</option>
+											<option value="department-4">Newsroom 4 - OP-ED</option>
+											<option value="department-5">Newsroom 5 - Features</option>
+											<option value="department-6">Newsroom 6 - Special Projects</option>
+										</select>
 									</div>
 								</div>
 								<div class="col-12">
@@ -114,25 +217,13 @@
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<!-- <label for="email">Author*</label> -->
-										<input type="hidden" class="form-control" name = "delinews[author]" placeholder = "author" value = "Woodward Journal Staff" required>
+										<label for="email">Author* (If more than one author: Each author must be seperated by a comma and no spaces around the comma)</label>
+										<input type="text" class="form-control" name = "delinews[author]" placeholder = "author" required>
 									</div>
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<!-- <label for="email">Author Designation*</label> -->
-										<input type="hidden" class="form-control" name = "delinews[authorDesignation]" placeholder = "designation" value = "News Sources & Associated Press" required>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<!-- <label for="email">Category*</label> -->
-										<input type="hidden" class="form-control" name = "delinews[category]" placeholder = "designation" value = "news" required>
-									</div>
-								</div>
-								<!-- <div class="col-12 col-lg-6">
-									<div class="form-group">
-										<label for="message">Category*</label>
+										<label for="message">category*</label>
 										<select name="delinews[category]" required>
 											<option value="analysis">Analysis</option>
 											<option value="history">History</option>
@@ -145,22 +236,10 @@
 											<option value="column">Column</option>
 										</select>
 									</div>
-								</div> -->
-								<div class="col-12 col-lg-6">
+								</div>
+								<div class="col-12">
 									<div class="form-group">
-										<label for="message">Section*</label>
-										<select name="delinews[tag]" required>
-											<option value="world">World</option>
-											<option value="india">India</option>
-											<option value="sports">Sports</option>
-											<option value="science">Science</option>
-											<option value="tech">Tech</option>
-											<option value="arts-entertainment">Arts & Entertainment</option>
-											<option value="lifestyle">Lifestyle</option>
-											<option value="food">Food</option>
-											<option value="covid19">COVID19</option>
-											<option value="business">Business</option>
-										</select>
+										<input type="hidden" class="form-control" name = "delinews[status]" value="draft" required>
 									</div>
 								</div>
 								<div class="col-12">
