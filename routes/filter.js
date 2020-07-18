@@ -32,10 +32,25 @@ router.get("/search", function(req, res){
 	}
 });
 
+router.get("/drafts", middleware.isAdmin, function(req, res){
+    Delinews.find({}).sort({_id: -1}).exec(function (err, delinewsPosts) {
+            if (err) {
+                console.log(err);
+				res.redirect("/error")
+            } else {
+				res.render("drafts", {
+					posts:delinewsPosts,
+					filter:"Drafts", pageTitle:"Drafts",
+				});
+            }
+    });
+});
+
 router.get("/drafts/:department", middleware.isAdmin, function(req, res){
     Delinews.find({department:req.params.department}).sort({_id: -1}).exec(function (err, delinewsPosts) {
             if (err) {
                 console.log(err);
+				res.redirect("/error")
             } else {
 				res.render("drafts", {
 					posts:delinewsPosts,

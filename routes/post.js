@@ -102,6 +102,8 @@ router.put("/:slug", middleware.isAdmin, upload.single('image'), function(req, r
             foundPost.content = req.body.delinews.content;
             foundPost.author = req.body.delinews.author;
             foundPost.category = req.body.delinews.category;
+            foundPost.department = req.body.delinews.department;
+            foundPost.status = req.body.delinews.status;
             foundPost.imgSource = req.body.delinews.imgSource;
             foundPost.tag = req.body.delinews.tag;
             foundPost.save();
@@ -135,7 +137,7 @@ router.delete("/:slug", middleware.isAdmin, function(req, res){
 router.get("/:category/:slug", function(req, res){
 	Delinews.findOne({slug: req.params.slug}).exec(function(err, foundPost){
 		if(err){
-			res.render("error");
+			res.redirect("/error");
 		} else {
 			if (foundPost==null || foundPost==undefined){
 				Delinews.findById(req.params.slug).exec(function(err, post){

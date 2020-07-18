@@ -4,7 +4,7 @@
 	
 	var adminList = [];
 	posts.forEach(function(post){
-		if (post.status != "published"){
+		if (post.status == "draft" || post.status == "finalDraft"){
 			adminList.push(post);	
 		};
 	});
@@ -31,13 +31,13 @@
 						<div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(<%=post.image%>)">
 						  <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
 						  <img src="<%=post.image%>" alt="<%=post.slug%>" class="entry__img d-none">
-						  <a href="/category/<%=post.category%>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%=post.category%></a>
+						  <a href="/<%= post.slug %>/edit" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner">Edit Post</a>
 						</div>
 
 						<div class="entry__body post-list__body card__body">
 						  <div class="entry__header">
 							<h2 class="entry__title">
-							  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.title%></a>
+							  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.category.toUpperCase()%> <br> <%=post.title%></a>
 							</h2>
 							<ul class="entry__meta">
 							  <li class="entry__meta-author">
@@ -62,13 +62,13 @@
 						<div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(<%=post.image%>)">
 						  <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
 						  <img src="<%=post.image%>" alt="<%=post.slug%>" class="entry__img d-none">
-						  <a href="/category/<%=post.category%>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%=post.category%></a>
+						  <a href="/<%= post.slug %>/edit" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner">Edit Post</a>
 						</div>
 
 						<div class="entry__body post-list__body card__body">
 						  <div class="entry__header">
 							<h2 class="entry__title">
-							  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.title%></a>
+							  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.category.toUpperCase()%> <br> <%=post.title%></a>
 							</h2>
 							<ul class="entry__meta">
 							  <li class="entry__meta-author">

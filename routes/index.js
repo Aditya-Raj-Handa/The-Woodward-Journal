@@ -106,7 +106,7 @@ router.get("/login", function(req, res){
 
 router.post("/login", passport.authenticate("local",
 	{
-		successRedirect: "/new",
+		successRedirect: "/",
 		failureRedirect: "/login"
 	}), function(req, res){
 });

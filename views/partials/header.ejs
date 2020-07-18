@@ -357,8 +357,29 @@
 				  <a href="/category/perspective" class="sidenav__menu-url">PERSPECTIVE</a>
 				</li>
 				<li>
-				  <a href="/category/elrond" class="sidenav__menu-url">ELROND FOUNDATION</a>
+				  <a href="/category/elrond" class="sidenav__menu-url">ELROND</a>
 				</li>
+				<% if (user) {%>
+				<li>
+				  <a href="/new" class="sidenav__menu-url">New Post</a>
+				</li>
+				<% if (user.username == "admin" || user.username == "editor") {%>
+				<li class="nav__dropdown">
+				<% if (user.username == "admin") {%>
+                  <a href="/drafts">drafts</a>
+				<% } else { %>
+                  <a href="#">drafts</a>
+				<% } %>
+                  <ul class="nav__dropdown-menu">
+                    <li><a href="/drafts/department-1">Newsroom 1</a></li>
+                    <li><a href="/drafts/department-2">Newsroom 2</a></li>
+                    <li><a href="/drafts/department-3">Newsroom 3</a></li>
+                    <li><a href="/drafts/department-4">Newsroom 4</a></li>
+                    <li><a href="/drafts/department-5">Newsroom 5</a></li>
+                    <li><a href="/drafts/department-6">Newsroom 6</a></li>
+                  </ul>
+                </li>
+				<% }} %>
               </ul> <!-- end menu -->
             </nav> <!-- end nav-wrap -->
 
