@@ -107,7 +107,7 @@ router.put("/:slug", middleware.isAdmin, upload.single('image'), function(req, r
             foundPost.imgSource = req.body.delinews.imgSource;
             foundPost.tag = req.body.delinews.tag;
             foundPost.save();
-            res.redirect("/" + foundPost.slug);
+            res.redirect("/");
         }
     });
 });
