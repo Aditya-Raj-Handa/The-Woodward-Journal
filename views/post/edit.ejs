@@ -93,9 +93,14 @@
 										<input type="text" class="form-control" name = "delinews[tag]" value="<%= post.tag %>" required>
 									</div>
 								</div>
-								<div class="col-12">
+								<div class="col-12 col-lg-6">
 									<div class="form-group">
-										<input type="hidden" class="form-control" name = "delinews[status]" value="published" required>
+										<label for="message">status*</label>
+										<select name="delinews[status]" required>
+											<option value="published">Publish</option>
+											<option value="finalDraft">Final Draft</option>
+											<option value="draft">First Draft</option>
+										</select>
 									</div>
 								</div>
 								<div class="col-12">
