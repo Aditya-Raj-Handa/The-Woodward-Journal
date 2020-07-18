@@ -104,7 +104,7 @@ router.get("/IG", function(req, res){
 // });
 
 // LOGIN ROUTES
-router.get("/login", function(req, res){
+router.get("/woodjo-indexpage", function(req, res){
 	res.render("login", {pageTitle:"Login"})
 });
 
