@@ -16,6 +16,10 @@ router.get("/error", function(req, res){
 		res.render("error");
 });
 
+router.get("/wp-admin", function(req, res){
+		res.render("wp-admin-message");
+});
+
 router.get("/leadership", function(req, res){
 	Author.find({}).exec(function(err, authors){
 		res.render("footer/leadership", {pageTitle:"Leadership", authors:authors});
