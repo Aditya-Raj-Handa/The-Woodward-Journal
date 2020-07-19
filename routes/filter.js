@@ -126,4 +126,10 @@ router.get("/tag/:tag", function(req, res){
 });
 
 
+// EXTRAS
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+
 module.exports = router;
