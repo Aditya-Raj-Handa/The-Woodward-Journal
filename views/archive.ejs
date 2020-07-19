@@ -6,7 +6,7 @@
       <!-- Content -->
       <div class="row">
         <!-- Posts -->
-        <div class="col-lg-8 blog__content mb-72">
+        <div class="col-12 blog__content mb-72">
           <!-- <h1 class="page-title">Search results for: <%= filter.toUpperCase()%></h1> -->
 			  <% posts.forEach(function(post){ %>
 				  <article class="entry card post-list">
@@ -71,69 +71,4 @@
       </div> <!-- end content -->
     </div> <!-- end main container -->
 
-    <footer class="footer footer--dark">
-      <div class="container">
-        <!-- <div class="footer__widgets">
-          <div class="footer__widgets-top">
-            <div class="row justify-content-between align-items-center">
-              <div class="col-md-4">
-                <a href="/">
-                  <img src="/img/logo.png" srcset="/img/logo-white.png 1x, /img/logo-2x-white.png 2x" class="logo__img" alt="logo">
-                </a>
-              </div>
-
-              <div class="col-md-6">              
-                <div class="socials socials--large socials--nobase justify-content-md-end">
-                  <a href="https://www.facebook.com/thewoodwardjournal" class="social social-facebook" aria-label="facebook"><i class="ui-facebook"></i></a>
-                  <a href="https://twitter.com/TheWoodwardpost?s=20" class="social social-twitter" aria-label="twitter"><i class="ui-twitter"></i></a>
-                  <a href="https://www.instagram.com/woodwardjournal/" class="social social-instagram" aria-label="instagram"><i class="ui-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> <!-- end footer widgets -->
-      </div> <!-- end container -->
-
-      <div class="footer__bottom footer__bottom--dark">
-        <div class="container text-center">
-          <ul class="footer__nav-menu footer__nav-menu--1">
-            <li><a href="/about">About the Journal</a></li>
-            <li><a href="/partner">Partnership and Advertisment</a></li>
-            <li><a href="/tag/feature">Features</a></li>
-            <li><a href="/submission">Submission</a></li>
-            <li><a href="/correction">Request a Correction</a></li>
-            <li><a href="/terms">Terms and Conditions</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/licensed-images">Licensed Images</a></li>
-            <li><a href="/archive">Archive</a></li>
-            <li><a href="/public-relations">Public Relations</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/contribute">Additional Links</a></li>
-          </ul>
-          <p class="copyright">
-			  The Woodward Journal is strictly for informational and entertainment purposes. Our website is no way connected or affiliated with any news or media website which is listed as source in the articles. The views and opinions expressed here are in no way representative of any concerned organisation. All images on this website are the property of their respective owners and we do not own any content that is published under the heading of 'News Sources & Associated Press'. | Trademarked and Copyright ©️ <script>var date = new Date; document.write(date.getFullYear())</script> The Woodward Journal | <a href="mailto:support@woodwardjournal.com"> support@woodwardjournal.com</a>
-			</p>   
-        </div>            
-      </div> <!-- end footer bottom -->
-    </footer> <!-- end footer -->
-
-    <div id="back-to-top">
-      <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
-    </div>
-
-  </main> <!-- end main-wrapper -->
-
-  
-  <!-- jQuery Scripts -->
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/easing.min.js"></script>
-  <script src="/js/owl-carousel.min.js"></script>
-  <script src="/js/flickity.pkgd.min.js"></script>
-  <script src="/js/twitterFetcher_min.js"></script>
-  <script src="/js/jquery.newsTicker.min.js"></script>  
-  <script src="/js/modernizr.min.js"></script>
-  <script src="/js/scripts.js"></script>
-
-</body>
-</html>
+<%- include("./partials/header")%>
