@@ -40,7 +40,7 @@ if (user){
 					</div>
 					<div class="col-lg-8">
 						<div class="entry-author__info">
-							<a class="entry-author__name" href="/people/<%=author.slug%>"><%=author.name%></a>
+							<a class="entry-author__name"><%=author.name%></a>
 							<p class="mb-0"><%-author.bio%></p>
 							</div>
 						</div>
@@ -240,7 +240,7 @@ if (user){
 			<% } %>
         </div> <!-- end posts -->
 		  
-		<% if (posts.length > 7) { %>
+		<% if (posts.length > 6) { %>
         <!-- Sidebar -->
         <aside class="col-lg-4 sidebar sidebar--right">
 
