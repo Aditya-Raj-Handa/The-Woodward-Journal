@@ -191,26 +191,25 @@
 		<li>
 		  <a href="/" class="sidenav__menu-url">HOME</a>
 		</li>
+		<% if(user){ %>
 		<li>
-			<% if(user){ %>
-			<li>
-			  <a href="#" class="sidenav__menu-url">USER ACCESS</a>
-			  <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
-			  <ul class="sidenav__menu-dropdown">
-				<li><a class="sidenav__menu-url" href="/logout">LOGOUT</a></li>
-				<li><a href="/new" class="sidenav__menu-url">NEW POST</a></li>
-			<% if (user.username == "admin" || user.username == "editor") {%>
-				<li><a href="/drafts/department-1" class="sidenav__menu-url">Newsroom 1 - News</a></li>
-				<li><a href="/drafts/department-2" class="sidenav__menu-url">Newsroom 2 - Movies & TV</a></li>
-				<li><a href="/drafts/department-3" class="sidenav__menu-url">Newsroom 3 - Elrond</a></li>
-				<li><a href="/drafts/department-4" class="sidenav__menu-url">Newsroom 4 - OP-ED</a></li>
-				<li><a href="/drafts/department-5" class="sidenav__menu-url">Newsroom 5 - Features</a></li>
-				<li><a href="/drafts/department-6" class="sidenav__menu-url">Newsroom 6 - Special Projects</a></li>
-			  </ul>
-			</li>
-			<% } %>
-			<% } %>
+		  <a href="#" class="sidenav__menu-url">USER ACCESS</a>
+		  <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
+		  <ul class="sidenav__menu-dropdown">
+			<li><a class="sidenav__menu-url" href="/logout">LOGOUT</a></li>
+			<li><a href="/new" class="sidenav__menu-url">NEW POST</a></li>
+		<% if (user.username == "admin" || user.username == "editor") {%>
+			<% if (user.username == "admin") { %> <li><a href="/drafts" class="sidenav__menu-url">All Drafts</a></li> <% } %>
+			<li><a href="/drafts/department-1" class="sidenav__menu-url">Newsroom 1 - News</a></li>
+			<li><a href="/drafts/department-2" class="sidenav__menu-url">Newsroom 2 - Movies & TV</a></li>
+			<li><a href="/drafts/department-3" class="sidenav__menu-url">Newsroom 3 - Elrond</a></li>
+			<li><a href="/drafts/department-4" class="sidenav__menu-url">Newsroom 4 - OP-ED</a></li>
+			<li><a href="/drafts/department-5" class="sidenav__menu-url">Newsroom 5 - Features</a></li>
+			<li><a href="/drafts/department-6" class="sidenav__menu-url">Newsroom 6 - Special Projects</a></li>
+		<% } %>
+		  </ul>
 		</li>
+		<% } %>
 		<li>
 		  <a href="/category/news" class="sidenav__menu-url">NEWS</a>
 		</li>
