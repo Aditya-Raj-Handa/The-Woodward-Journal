@@ -193,12 +193,24 @@
 		</li>
 		<li>
 			<% if(user){ %>
-		  <a class="sidenav__menu-url" href="/logout">
-			Logout
-		  </a>
+			<li>
+			  <a href="#" class="sidenav__menu-url">USER ACCESS</a>
+			  <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
+			  <ul class="sidenav__menu-dropdown">
+				<li><a class="sidenav__menu-url" href="/logout">LOGOUT</a></li>
+				<li><a href="/new" class="sidenav__menu-url">NEW POST</a></li>
+			<% if (user.username == "admin" || user.username == "editor") {%>
+				<li><a href="/drafts/department-1" class="sidenav__menu-url">Newsroom 1 - News</a></li>
+				<li><a href="/drafts/department-2" class="sidenav__menu-url">Newsroom 2 - Movies & TV</a></li>
+				<li><a href="/drafts/department-3" class="sidenav__menu-url">Newsroom 3 - Elrond</a></li>
+				<li><a href="/drafts/department-4" class="sidenav__menu-url">Newsroom 4 - OP-ED</a></li>
+				<li><a href="/drafts/department-5" class="sidenav__menu-url">Newsroom 5 - Features</a></li>
+				<li><a href="/drafts/department-6" class="sidenav__menu-url">Newsroom 6 - Special Projects</a></li>
+			  </ul>
+			</li>
+			<% } %>
 			<% } %>
 		</li>
-		<!-- Categories -->
 		<li>
 		  <a href="/category/news" class="sidenav__menu-url">NEWS</a>
 		</li>
@@ -227,16 +239,16 @@
           <a href="#" class="sidenav__menu-url">EXPLORE</a>
           <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
           <ul class="sidenav__menu-dropdown">
-            <li><a href="/tag/world" class="sidenav__menu-url">WORLD</a></li>
-            <li><a href="/tag/india" class="sidenav__menu-url">INDIA</a></li>
-            <li><a href="/tag/covid19" class="sidenav__menu-url">CORONAVIRUS</a></li>
-            <li><a href="/tag/business" class="sidenav__menu-url">BUSINESS</a></li>
-            <li><a href="/tag/sports" class="sidenav__menu-url">SPORTS</a></li>
-            <li><a href="/tag/arts-entertainment" class="sidenav__menu-url">ART & ENTERTAINMENT</a></li>
-            <li><a href="/tag/science" class="sidenav__menu-url">SCIENCE</a></li>
-            <li><a href="/tag/tech" class="sidenav__menu-url">TECH</a></li>
-            <li><a href="/tag/lifestyle" class="sidenav__menu-url">LIFESTYLE</a></li>
-            <li><a href="/tag/food" class="sidenav__menu-url">FOOD</a></li>
+			<li><a href="/tag/world" class="sidenav__menu-url">WORLD</a></li>
+			<li><a href="/tag/india" class="sidenav__menu-url">INDIA</a></li>
+			<li><a href="/tag/covid19" class="sidenav__menu-url">CORONAVIRUS</a></li>
+			<li><a href="/tag/business" class="sidenav__menu-url">BUSINESS</a></li>
+			<li><a href="/tag/sports" class="sidenav__menu-url">SPORTS</a></li>
+			<li><a href="/tag/arts-entertainment" class="sidenav__menu-url">ART & ENTERTAINMENT</a></li>
+			<li><a href="/tag/science" class="sidenav__menu-url">SCIENCE</a></li>
+			<li><a href="/tag/tech" class="sidenav__menu-url">TECH</a></li>
+			<li><a href="/tag/lifestyle" class="sidenav__menu-url">LIFESTYLE</a></li>
+			<li><a href="/tag/food" class="sidenav__menu-url">FOOD</a></li>
           </ul>
         </li>
 		<li>
