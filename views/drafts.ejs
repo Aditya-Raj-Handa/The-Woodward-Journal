@@ -51,7 +51,10 @@
 						  </div>
 						  <div class="entry__excerpt">
 							<p><%- post.content.replace(/<[^>]+>/g, '').slice(0, 250) %>...</p>
-							  <a class="read-more-button" href="/<%= post.category %>/<%= post.slug %>">Read More...</a>
+							<a class="read-more-button" href="/<%= post.category %>/<%= post.slug %>">Read More...</a>
+							<form action="/<%=post.slug%>?_method=DELETE" method="post">
+								<button class="btn mt-2">Delete The Post</button>
+							</form>
 						  </div>
 						</div>
 					  </article>
