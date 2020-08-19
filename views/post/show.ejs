@@ -305,7 +305,7 @@ function slugify(text) {
 
           <!-- Widget Popular Posts -->
           <aside class="widget widget-popular-posts">
-            <h4 class="widget-title">Also Read</h4>
+			  <a href="/archive"><h4 class="widget-title">Also Read</h4></a>
             <ul class="post-list-small">
 			<% delinews.slice(0, 15).forEach(function(post){ %>
               <li class="post-list-small__item">
@@ -319,12 +319,12 @@ function slugify(text) {
                   </div>
                   <div class="post-list-small__body">
                     <h3 class="post-list-small__entry-title">
-                      <a href="/<%= post.cateory %>/<%= post.slug %>"><%= post.title %></a>
+                      <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
                     </h3>
                     <ul class="entry__meta">
                       <li class="entry__meta-author">
                         <span>by</span>
-                        <a href="/<%= post.cateory %>/<%= post.slug %>"><%= post.author %></a>
+                        <a href="/people/<%= post.author %>"><%= post.author %></a>
                       </li>
                       <li class="entry__meta-date">
                         <%=post.date%> - <%=moment(post.createdAt).fromNow()%>
