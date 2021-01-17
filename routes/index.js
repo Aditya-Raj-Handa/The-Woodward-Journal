@@ -32,6 +32,10 @@ router.get("/team", function(req, res){
 	});
 });
 
+router.get("/originals", function(req, res){
+	res.redirect("/category/originals");
+});
+
 router.get("/contact", function(req, res){
 	res.render("footer/contact", {pageTitle:"Contact"});
 });
