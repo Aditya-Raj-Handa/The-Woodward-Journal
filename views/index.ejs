@@ -1,0 +1,286 @@
+<%- include("./partials/header")%>
+
+
+    <!-- Breadcrumbs -->
+<% 
+if (user){
+	if (user.username == "admin" && author!=null) { %>
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a href="/people/<%=author.slug%>/edit" class="breadcrumbs__url">Edit Author</a>
+        </li>
+        <li class="breadcrumbs__item">
+			<form action="/people/<%=author.slug%>?_method=DELETE" method="post">
+				<button id="delete">Delete The Author</button>
+			</form>
+        </li>
+      </ul>
+    </div>
+<%	}
+}
+%>
+<% if (category) {%>
+	<!-- Ad Banner 970 -->
+	<!-- <div class="text-center">
+		<a href="">
+			<img class="category-header-img" src="/img/cat_banners/<%=posts[0].category%>.png" width="100%" alt="<%=posts[0].category%>-banner">
+		</a>
+	</div>  -->
+<% } %>
+
+    <div class="main-container container" id="main-container">   
+		
+		<section class="featured-posts-grid featured-posts-grid--1">
+		<% if(author!=null) { %>
+			<div class="entry-author">
+				<div class="row">
+					<div class="col-lg-3">
+						<img alt="<%=author.slug%>" data-src="<%=author.image%>" src="img/empty.png" class="avatar lazyload">
+					</div>
+					<div class="col-lg-8">
+						<div class="entry-author__info">
+							<a class="entry-author__name"><%=author.name%></a>
+							<p class="mb-0"><%-author.bio%></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div>
+		<% } %>
+			
+        <div class="row">
+
+          <div class="col-lg-6">
+			<% posts.slice(0, 1).forEach(function(post){ %>
+            <article class="entry thumb thumb--size-4">
+              <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                <div class="bottom-gradient"></div>
+                <div class="thumb-text-holder thumb-text-holder--3">
+                  <a href="/category/<%= post.category %>" class="entry__meta-category entry__meta-category--label"><%= post.category %></a>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+						<% if(post.author.length>1) { %>
+                    <a href="#"><%=post.author%></a>
+						<% } else { %>
+					<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+						<% } %>
+                    </li>
+                    <li class="entry__meta-date">
+                      <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                    </li>
+                  </ul>
+                  <h2 class="thumb-entry-title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                </div>
+                <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+              </div>
+            </article>
+			<% }) %>
+            <div class="row">
+			<% posts.slice(1, 3).forEach(function(post){ %>
+              <div class="col-lg-6">
+                <article class="entry thumb thumb--size-1">
+                  <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                    <div class="bottom-gradient"></div>
+                    <div class="thumb-text-holder thumb-text-holder--4">
+                      <h2 class="thumb-entry-title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                    </div>
+                    <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+                  </div>
+                </article>
+              </div>
+			<% }) %>
+            </div> <!-- end row -->
+
+          </div> <!-- end col -->
+
+          <div class="col-lg-6">
+			<% posts.slice(3, 4).forEach(function(post){ %>
+            <article class="entry thumb thumb--size-4">
+              <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                <div class="bottom-gradient"></div>
+                <div class="thumb-text-holder thumb-text-holder--3">
+                  <a href="/category/<%= post.category %>" class="entry__meta-category entry__meta-category--label"><%= post.category %></a>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+						<span>by</span>
+						<% if(post.author.length>1) { %>
+							<a href="#"><%=post.author%></a>
+						<% } else { %>
+							<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+						<% } %>
+                    </li>
+                    <li class="entry__meta-date">
+                      <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                    </li>
+                  </ul>
+                  <h2 class="thumb-entry-title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                </div>
+                <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+              </div>
+            </article>
+			<% }) %>
+            <div class="row">
+			<% posts.slice(4, 6).forEach(function(post){ %>
+              <div class="col-lg-6">
+                <article class="entry thumb thumb--size-1">
+                  <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                    <div class="bottom-gradient"></div>
+                    <div class="thumb-text-holder thumb-text-holder--4">
+                      <h2 class="thumb-entry-title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                    </div>
+                    <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+                  </div>
+                </article>
+              </div>
+			<% }) %>
+            </div> <!-- end row -->
+
+          </div>          
+
+        </div>
+    </section> <!-- end featured posts grid -->
+			
+			<script type="text/javascript">
+			amzn_assoc_placement = "adunit0";
+			amzn_assoc_tracking_id = "woodwardjourn-20";
+			amzn_assoc_ad_mode = "search";
+			amzn_assoc_ad_type = "smart";
+			amzn_assoc_marketplace = "amazon";
+			amzn_assoc_region = "US";
+			amzn_assoc_default_search_phrase = "Books";
+			amzn_assoc_default_category = "All";
+			amzn_assoc_linkid = "cae26d3a094eb1c0ad77260c1f4e59cf";
+			amzn_assoc_design = "in_content";
+			</script>
+			<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+			
+			<!-- Ad Banner 970 -->
+			<div class="text-center pb-48">
+				<a href="https://instagram.com/woodwardjournal" target="_blank">
+					<img src="/img/CTAs/ig.jpg" alt="instagram-call-to-action">
+				</a>
+			</div> 
+
+
+      <!-- Content -->
+      <div class="row">
+        <!-- Posts -->
+        <div class="col-lg-8 blog__content mb-72">
+          <!-- <h1 class="page-title">Search results for: <%= filter.toUpperCase()%></h1> -->
+			  <% posts.slice(6).forEach(function(post){ %>
+				  <article class="entry card post-list">
+					<div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(<%=post.image%>)">
+					  <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+					  <img src="<%=post.image%>" alt="<%=post.slug%>" class="entry__img d-none">
+					  <a href="/category/<%=post.category%>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%=post.category%></a>
+					</div>
+
+					<div class="entry__body post-list__body card__body">
+					  <div class="entry__header">
+						<h2 class="entry__title">
+						  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.title%></a>
+						</h2>
+						<ul class="entry__meta">
+						  <li class="entry__meta-author">
+							<span>by</span>
+							<% if(post.author.length>1) { %>
+								<a href="#"><%=post.author%></a>
+							<% } else { %>
+								<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+							<% } %>
+						  </li>
+						  <li class="entry__meta-date">
+							<%= post.date%> - <%= moment(post.createdAt).fromNow() %>
+						  </li>
+						</ul>
+					  </div>
+					  <div class="entry__excerpt">
+						<p><%- post.content.replace(/<[^>]+>/g, '').slice(0, 100) %> ...</p>
+					  </div>
+					</div>
+				  </article>
+			  <% }) %>
+			
+			<% if (pages && pages >1){ %>
+			
+          <!-- Pagination -->
+          <nav class="pagination">
+			  <%if (current != 1) {%>
+			<a href="<%=path%>?page=<%= Number(current) - 1 %>" class="pagination__page"><i class="ui-arrow-left"></i></a>
+			  <%} %>
+				<% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
+				<% if (i !== 1) { %>
+				<span class="pagination__page pagination__page--current">...</span>
+				<% } %>
+				<% for (; i <= (Number(current) + 2) && i <= pages; i++) { %>
+				<% if (i == current) { %>
+				<span class="pagination__page pagination__page--current"><%= i %></span>
+				<% } else { %>
+				<a class="pagination__page" href="<%=path%>?page=<%= i %>"><%= i %></a>
+				<% } %>
+				<% if (i == Number(current) + 2 && i < pages) { %>
+				<span class="pagination__page pagination__page--current">...</span>
+				<% } %>
+				<% } %>
+			  <% if (current != pages) {%>
+            <a href="<%=path%>?page=<%= Number(current) + 1 %>" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
+			  <% } %>
+          </nav>
+			
+			<% } %>
+        </div> <!-- end posts -->
+		  
+		<% if (posts.length > 6) { %>
+        <!-- Sidebar -->
+        <aside class="col-lg-4 sidebar sidebar--right">
+
+          <!-- Widget Popular Posts -->
+          <aside class="widget widget-popular-posts">
+            <h4 class="widget-title">Popular Posts</h4>
+            <ul class="post-list-small">
+				<% delinews.slice(0, 6).forEach(function(post){ %>
+              <li class="post-list-small__item">
+                <article class="post-list-small__entry clearfix">
+                  <div class="post-list-small__img-holder">
+                    <div class="thumb-container thumb-100">
+                      <a href="/<%=post.slug%>">
+                        <img data-src="<%=post.image%>" src="img/empty.png" alt="<%=post.slug%>" class=" lazyload">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-list-small__body">
+                    <h3 class="post-list-small__entry-title">
+                      <a href="/<%=post.slug%>"><%=post.title%></a>
+                    </h3>
+                    <ul class="entry__meta">
+                      <li class="entry__meta-author">
+                        <span>by</span>
+                        <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                      </li>
+                      <li class="entry__meta-date">
+                        <%=post.date%> - <%= moment(post.createdAt).fromNow() %>
+                      </li>
+                    </ul>
+                  </div>                  
+                </article>
+              </li>
+				<% }) %>
+            </ul>           
+          </aside> <!-- end widget popular posts -->
+        </aside> <!-- end sidebar -->
+		<% } %>
+  
+      </div> <!-- end content -->
+    </div> <!-- end main container -->
+
+<%- include("./partials/footer") %>

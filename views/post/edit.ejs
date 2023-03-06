@@ -1,0 +1,186 @@
+<%- include("../partials/header") %>
+
+
+<!-- Breadcrumbs -->
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a href="/" class="breadcrumbs__url">Home</a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">
+          Edit <%= post.title %>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ##### New Area Start ##### -->
+    <section class="contact-area mb-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 col-lg-8">
+                    <!-- Section Heading -->
+                    <div class="section-heading style-2">
+                        <h4>Edit <%=post.title%></h4>
+                        <div class="line"></div>
+                    </div>
+                    <!-- Contact Form Area -->
+                    <div class="contact-form-area mt-50">
+						<% if (user.username == "admin") {%>
+                        <form action="/<%=post.slug%>?_method=PUT" method="post" enctype="multipart/form-data">
+							<div class="row">
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="name">Title*</label>
+										<input type="text" class="form-control" name="delinews[title]" value="<%=post.title%>" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Image*</label>
+										<input type="file" class="form-control" name="image" accept="image/*">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">News Source & Image Courtesy:</label>
+										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source" value="<%=post.imgSource%>">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">department*</label>
+										<select name="delinews[department]" required>
+											<option value="department-1">Newsroom 1 - News</option>
+											<option value="department-2">Newsroom 2 - Movies, TV & Music</option>
+											<option value="department-3">Newsroom 3 - Elrond Foundation</option>
+											<option value="department-4">Newsroom 4 - OP-ED</option>
+											<option value="department-5">Newsroom 5 - Features</option>
+											<option value="department-6">Newsroom 6 - Special Projects</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="message">Content*</label>
+										<textarea name="delinews[content]" class="form-control" cols="30" rows="10" required><%=post.content%></textarea>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Author* (If more than one author: Each author must be seperated by a comma and no spaces around the comma)</label>
+										<input type="text" class="form-control" name="delinews[author]" value="<%=post.author%>" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">category*</label>
+										<select name="delinews[category]" required>
+											<option value="analysis">Analysis</option>
+											<option value="originals">Originals</option>
+											<option value="history">History</option>
+											<option value="news">News</option>
+											<option value="review">Review</option>
+											<option value="report">Report</option>
+											<option value="perspective">Perspective</option>
+											<option value="opinion">Opinion</option>
+											<option value="elrond">Elrond</option>
+											<option value="column">Column</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="email">Tags (Each tag must be seperated by a comma and no spaces around the comma)*</label>
+										<input type="text" class="form-control" name = "delinews[tag]" value="<%= post.tag %>" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="message">status*</label>
+										<select name="delinews[status]" required>
+											<option value="published">Publish</option>
+											<option value="finalDraft">Save to Admin</option>
+											<option value="draft">Back To Editor</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-foode" type="submit">Send Now</button>
+								</div>
+							</div>
+                        </form>
+						<% } else if (user.username == "editor") {%>
+                        <form action="/<%=post.slug%>?_method=PUT" method="post" enctype="multipart/form-data">
+							<div class="row">
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="name">Title*</label>
+										<input type="text" class="form-control" name="delinews[title]" value="<%=post.title%>" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Image*</label>
+										<input type="file" class="form-control" name="image" accept="image/*">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">News Source & Image Courtesy: </label>
+										<input type="text" class="form-control" name = "delinews[imgSource]" placeholder = "Image Source" value="<%=post.imgSource%>">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="message">Content*</label>
+										<textarea name="delinews[content]" class="form-control" cols="30" rows="10" required><%=post.content%></textarea>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[department]" value="<%= post.department %>" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[tag]" value="<%= post.tag %>" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[category]" value="<%= post.category %>" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[author]" value="<%= post.author %>" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<input type="hidden" class="form-control" name = "delinews[status]" value="finalDraft" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-foode" type="submit">Send Now</button>
+								</div>
+							</div>
+                        </form>
+						<% } %>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### New Area End ##### -->
+
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+  </script>
+
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,1228 @@
+<%- include("./partials/header")%>
+
+<%
+
+var categories = [
+	"national", "international", "regional", "science", "sports", "technology"
+];
+
+var news = [];
+	delinews.forEach(function(post){
+		if (post.category == "news" || post.category == "national" || post.category == "international" || post.category == "regional" || post.category == "science" || post.category == "sports" || post.category == "technology"){
+			news.push(post);
+		}
+	})
+
+var elrond = [];
+	delinews.forEach(function(post){
+		if (post.category == "elrond"){
+			elrond.push(post);
+		}
+	})
+
+var column = [];
+	delinews.forEach(function(post){
+		if (post.category == "column"){
+			column.push(post);
+		}
+	})
+
+var history = [];
+	delinews.forEach(function(post){
+		if (post.category == "history"){
+			history.push(post);
+		}
+	})
+
+var opinion = [];
+	delinews.forEach(function(post){
+		if (post.category == "opinion"){
+			opinion.push(post);
+		}
+	})
+
+var review = [];
+	delinews.forEach(function(post){
+		if (post.category == "review"){
+			review.push(post);
+		}
+	})
+
+var report = [];
+	delinews.forEach(function(post){
+		if (post.category == "report"){
+			report.push(post);
+		}
+	})
+
+var perspective = [];
+	delinews.forEach(function(post){
+		if (post.category == "perspective"){
+			perspective.push(post);
+		}
+	})
+
+var analysis = [];
+	delinews.forEach(function(post){
+		if (post.category == "analysis"){
+			analysis.push(post);
+		}
+	})
+
+var latest=[];
+	delinews.forEach(function(post){
+		if (post.category!="elrond") {
+			latest.push(post);
+		}
+	})
+
+var highlights=[];
+	delinews.forEach(function(post){
+		if (post.tag.includes("highlight")){
+			highlights.push(post);
+		}
+	})
+%>
+  
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+      <div id="owl-hero-slider" class="owl-carousel owl-theme">
+		<% highlights.slice(0, 11).forEach(function(post){ %>
+        <div class="hero-slider__item">
+          <article class="entry thumb">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder thumb-text-holder--2">
+                <h2 class="thumb-entry-title">
+                  <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                </h2>
+                <ul class="entry__meta">
+                  <li class="entry__meta-author">
+                    <span>by</span>
+					<% if(post.author.length>1) { %>
+						<a href="#"><%=post.author%></a>
+					<% } else { %>
+						<a href="/people/<%= post.authorSlug %>"><%=post.author%></a>
+					<% } %>
+                  </li>
+                  <li class="entry__meta-date">
+                    <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                  </li>
+                </ul>
+              </div>
+              <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+            </div>
+          </article>
+        </div>
+		<% }) %>
+      </div>
+    </section> <!-- end hero slider -->
+
+    <div class="main-container container pt-8" id="main-container">   
+		<div class="title-wrap title-wrap--line title-wrap--pr">
+			<h3 class="section-title"><a href="/archive">Latest Stories</a></h3>
+        </div>
+		
+      <!-- Content -->
+      <div class="row row-20"> 
+
+        <!-- Posts -->
+        <div class="col-lg-6 order-lg-2">
+          <section class="section mb-16">
+		  <% delinews.slice(0, 1).forEach(function(post){ %>
+            <article class="entry thumb thumb--size-3 thumb--mb-20">
+              <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                <div class="bottom-gradient"></div>
+                <div class="thumb-text-holder thumb-text-holder--2">
+                  <ul class="entry__meta">
+                    <li>
+                      <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                    </li>
+                  </ul>
+                  <h2 class="thumb-entry-title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                </div>
+                <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+              </div>
+            </article>
+		  <% }) %>
+            <div class="row row-20">
+			  <% delinews.slice(1, 5).forEach(function(post){ %>
+              <div class="col-md-6">
+                <article class="entry">
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-65">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <ul class="entry__meta">
+                        <li>
+                          <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                        </li>
+                      </ul>                     
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>                      
+                    </div>
+                    <div class="entry__excerpt">
+                      <p><%- post.content.replace(/<[^>]+>/g, '').slice(0, 100) %>...</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+			  <% }) %>
+            </div>          
+          </section>
+        </div> <!-- end posts -->
+
+        <!-- Sidebar -->
+        <aside class="col-lg-3 sidebar order-lg-1">
+          <!-- Widget Headlines -->
+          <aside class="widget widget-headlines">
+            <!-- Slider -->
+            <div id="owl-headlines" class="owl-carousel owl-theme">
+              <div class="owl-item">
+                <ul class="post-list-small post-list-small--1">
+					<% delinews.slice(14, 31).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+              <div class="owl-item">
+                <ul class="post-list-small post-list-small--1">
+					<% delinews.slice(28, 35).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>              
+              <div class="owl-item">
+                <ul class="post-list-small post-list-small--1">
+					<% delinews.slice(35, 45).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>              
+            </div> <!-- end slider -->
+
+            <!-- Slider nav -->
+            <div class="owl-custom-nav text-center">
+              <button class="owl-custom-nav__btn owl-custom-nav__btn--prev" aria-label="previous slide">
+                <i class="ui-arrow-left"></i>
+                <span class="owl-custom-nav__label">Prev</span>
+              </button>
+              <button class="owl-custom-nav__btn owl-custom-nav__btn--next" aria-label="next slide">
+                <span class="owl-custom-nav__label">Next</span>
+                <i class="ui-arrow-right"></i>
+              </button>
+            </div>
+
+          </aside> <!-- end widget headlines -->
+        </aside> <!-- end sidebar -->
+
+        <!-- Sidebar -->
+        <aside class="col-lg-3 sidebar order-lg-3">
+          <!-- Widget Popular Posts -->
+          <aside class="widget widget-popular-posts">
+            <h4 class="widget-title"><a href="/archive">Also Read</a></h4>
+            <ul class="post-list-small post-list-small--1">
+				<% delinews.slice(5, 17).forEach(function(post){ %>
+              <li class="post-list-small__item">
+                <article class="post-list-small__entry clearfix">
+                  <div class="post-list-small__img-holder">
+                    <div class="thumb-container thumb-80">
+                      <a href="/<%= post.category %>/<%= post.slug %>">
+                        <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class=" lazyload">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-list-small__body">
+                    <h3 class="post-list-small__entry-title">
+                      <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                    </h3>
+                  </div>                  
+                </article>
+              </li>
+				<% }) %>
+            </ul>           
+          </aside> <!-- end widget popular posts -->
+        </aside> <!-- end sidebar -->
+  
+      </div> <!-- end content -->
+		
+		<div id="amzn-assoc-ad-395e0ebb-4688-425a-ba85-5cd4f6a3a249"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=395e0ebb-4688-425a-ba85-5cd4f6a3a249"></script>
+		
+	  <!-- report -->
+      <section class="section mb-24">
+        <div class="title-wrap title-wrap--line">
+          <h3 class="section-title"><a href="/category/report">Report</a></h3>
+        </div>
+        <div class="row row-20">
+		  <% report.slice(0, 1).forEach(function(post){ %>
+          <div class="col-md-3">
+            <article class="entry">
+              <div class="entry__img-holder">
+                <a href="/<%= post.category %>/<%= post.slug %>">
+                  <div class="thumb-container thumb-65">
+                    <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>">
+                  </div>
+                </a>
+              </div>
+
+              <div class="entry__body">
+                <div class="entry__header">
+                  <ul class="entry__meta">
+                    <li>
+                      <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                    </li>
+                  </ul>                     
+                  <h2 class="entry__title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>                      
+                </div>
+                <div class="entry__excerpt">
+                  <p><%= post.content.replace(/<[^>]+>/g, '').slice(0, 100) %> ...</p>
+                </div>
+              </div>
+            </article>
+          </div>
+		  <% }) %>
+		  <% report.slice(1, 2).forEach(function(post){ %>
+          <div class="col-md-6">
+            <article class="entry thumb thumb--size-3 thumb--mb-20">
+              <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                <div class="bottom-gradient"></div>
+                <div class="thumb-text-holder thumb-text-holder--2">
+                  <ul class="entry__meta">
+                    <li>
+                      <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                    </li>
+                  </ul>
+                  <h2 class="thumb-entry-title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                </div>
+                <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+              </div>
+            </article>
+          </div>
+		  <% }) %>
+		  <% report.slice(2, 3).forEach(function(post){ %>
+          <div class="col-md-3">
+            <article class="entry">
+              <div class="entry__img-holder">
+                <a href="/<%= post.category %>/<%= post.slug %>">
+                  <div class="thumb-container thumb-65">
+                    <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>">
+                  </div>
+                </a>
+              </div>
+
+              <div class="entry__body">
+                <div class="entry__header">
+                  <ul class="entry__meta">
+                    <li>
+                      <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                    </li>
+                  </ul>
+                  <h2 class="entry__title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>                      
+                </div>
+                <div class="entry__excerpt">
+                  <p><%= post.content.replace(/<[^>]+>/g, '').slice(0, 100) %> ...</p>
+                </div>
+              </div>
+            </article>
+          </div>
+		  <% }) %>
+        </div>
+        <div class="row row-20">
+		  <% report.slice(3, 4).forEach(function(post){ %>
+          <div class="col-md-6">
+            <article class="entry thumb thumb--size-3 thumb--mb-20">
+              <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+                <div class="bottom-gradient"></div>
+                <div class="thumb-text-holder thumb-text-holder--2">
+                  <ul class="entry__meta">
+                    <li>
+                      <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                    </li>
+                  </ul>
+                  <h2 class="thumb-entry-title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                </div>
+                <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+              </div>
+            </article>
+          </div>
+		  <% }) %>
+		  <% report.slice(4, 6).forEach(function(post){ %>
+          <div class="col-md-3">
+            <article class="entry">
+              <div class="entry__img-holder">
+                <a href="/<%= post.category %>/<%= post.slug %>">
+                  <div class="thumb-container thumb-65">
+                    <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>">
+                  </div>
+                </a>
+              </div>
+
+              <div class="entry__body">
+                <div class="entry__header">
+                  <ul class="entry__meta">
+                    <li>
+                      <a href="/category/<%= post.category %>" class="entry__meta-category"><%= post.category %></a>
+                    </li>
+                  </ul>                     
+                  <h2 class="entry__title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>                      
+                </div>
+                <div class="entry__excerpt">
+                  <p><%= post.content.replace(/<[^>]+>/g, '').slice(0, 100) %> ...</p>
+                </div>
+              </div>
+            </article>
+          </div>
+		  <% }) %>
+        </div>
+      </section> <!-- end more politics news -->
+		
+      <!-- opinion posts -->
+      <!-- <section class="section mb-16">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+			<h3 class="section-title"><a href="/category/opinion">Opinion</a></h3>
+        </div>
+        <div class="row card-row">
+			<% opinion.slice(0, 6).forEach(function(post){ %>
+          <div class="col-md-4">
+            <article class="entry card card--1">
+              <div class="entry__img-holder card__img-holder">
+                <a href="/<%= post.category %>/<%= post.slug %>">
+                  <div class="thumb-container thumb-70">
+                    <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                  </div>
+                </a>
+              </div>
+
+              <div class="entry__body card__body">
+                <div class="entry__header">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/category/<%= post.category %>"><%= post.category %></a>
+                    </li>
+                    <li class="entry__meta-date">
+                      <%= moment(post.createdAt).fromNow() %>
+                    </li>
+                  </ul>                     
+                  <h2 class="entry__title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                    </li>
+                  </ul>                     
+                </div>
+
+              </div>
+            </article>
+          </div>
+			 <% }) %>
+        </div>        
+      </section> -->
+	  <!-- end latest news -->
+		
+		
+		      <!-- Perspective posts -->
+      <section class="section mb-0">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+          <h3 class="section-title"><a href="/category/perspective">Perspective</a></h3>
+        </div>
+
+        <!-- Slider -->
+        <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+			<% perspective.slice(0, 8).forEach(function(post){ %>
+          <article class="entry thumb thumb--size-1">
+            <div class="entry__img-holder thumb__img-holder" style="background-image: url('<%= post.image %>');">
+              <div class="bottom-gradient"></div>
+              <div class="thumb-text-holder">   
+                <h2 class="thumb-entry-title">
+                  <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                </h2>
+              </div>
+              <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+            </div>
+          </article>
+			<% }) %>
+		</div> <!-- end slider -->
+
+      </section> <!-- end carousel posts -->
+
+			<script type="text/javascript">
+			amzn_assoc_placement = "adunit0";
+			amzn_assoc_tracking_id = "woodwardjourn-20";
+			amzn_assoc_ad_mode = "search";
+			amzn_assoc_ad_type = "smart";
+			amzn_assoc_marketplace = "amazon";
+			amzn_assoc_region = "US";
+			amzn_assoc_default_search_phrase = "Watches";
+			amzn_assoc_default_category = "All";
+			amzn_assoc_linkid = "cae26d3a094eb1c0ad77260c1f4e59cf";
+			amzn_assoc_design = "in_content";
+			</script>
+			<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+		
+    <!-- Featured Posts Grid -->      
+    <section class="featured-posts-grid">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+			<h3 class="section-title"><a href="/category/opinion">Opinion</a></h3>
+        </div>
+        <div class="row row-8">
+          <div class="col-lg-6">
+			<% opinion.slice(0, 3).forEach(function(post){ %>
+			  
+            <!-- Small post -->
+            <div class="featured-posts-grid__item featured-posts-grid__item--sm">
+              <article class="entry card post-list featured-posts-grid__entry">
+                <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(<%=post.image%>)">
+                  <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+                  <img src="<%= post.image %>" alt="<%= post.slug %>" class="entry__img d-none">
+                  <!-- <a href="/category/<%= post.category %>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%= post.category %></a> -->
+                </div>
+
+                <div class="entry__body post-list__body card__body">  
+                  <h2 class="entry__title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                    </li>
+                    <li class="entry__meta-date">
+                      <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                    </li>              
+                  </ul>
+                </div>
+              </article>
+            </div> <!-- end post -->
+			<% }) %>
+
+          </div> <!-- end col -->
+
+          <div class="col-lg-6">
+			<% opinion.slice(3, 4).forEach(function(post){ %>
+            <!-- Large post -->
+            <div class="featured-posts-grid__item featured-posts-grid__item--lg">
+              <article class="entry card featured-posts-grid__entry">
+                <div class="entry__img-holder card__img-holder">
+                  <a href="/<%= post.category %>/<%= post.slug %>">
+                    <img src="<%= post.image %>" alt="<%= post.slug %>" class="entry__img">
+                  </a>
+                  <!-- <a href="/category/<%= post.category %>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%= post.category %></a> -->
+                </div>
+
+                <div class="entry__body card__body">   
+                  <h2 class="entry__title">
+                    <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                  </h2>
+                  <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                      <span>by</span>
+                      <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                    </li>
+                    <li class="entry__meta-date">
+                      <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                    </li>              
+                  </ul>
+                </div>
+              </article>
+            </div> <!-- end large post -->
+          </div>          
+			<% }) %>
+        </div>
+    </section> <!-- end featured posts grid -->
+		
+		
+		      <!-- Most Viewed -->
+      <section class="section mb-32">
+        <div class="title-wrap title-wrap--line title-wrap--pr">
+			<h3 class="section-title"><a href="/category/analysis">Analysis</a></h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <ul class="post-list-small post-list-small--2 mb-32">
+				<% analysis.slice(0, 3).forEach(function(post){ %>
+              <li class="post-list-small__item">
+                <article class="post-list-small__entry clearfix">
+                  <div class="post-list-small__img-holder">
+                    <div class="thumb-container thumb-70">
+                      <a href="/<%= post.category %>/<%= post.slug %>">
+                        <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class=" lazyload">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-list-small__body">
+                    <h3 class="post-list-small__entry-title">
+                      <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                    </h3>
+                  </div>                  
+                </article>
+              </li>
+				<% }) %>
+            </ul> 
+          </div>
+          <div class="col-lg-4">
+            <ul class="post-list-small post-list-small--2 mb-32">
+				<% analysis.slice(3, 6).forEach(function(post){ %>
+              <li class="post-list-small__item">
+                <article class="post-list-small__entry clearfix">
+                  <div class="post-list-small__img-holder">
+                    <div class="thumb-container thumb-70">
+                      <a href="/<%= post.category %>/<%= post.slug %>">
+                        <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class=" lazyload">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-list-small__body">
+                    <h3 class="post-list-small__entry-title">
+                      <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                    </h3>
+                  </div>                  
+                </article>
+              </li>
+				<% }) %>
+            </ul> 
+          </div>
+          <div class="col-lg-4">
+            <ul class="post-list-small post-list-small--2 mb-32">
+				<% analysis.slice(6, 9).forEach(function(post){ %>
+              <li class="post-list-small__item">
+                <article class="post-list-small__entry clearfix">
+                  <div class="post-list-small__img-holder">
+                    <div class="thumb-container thumb-70">
+                      <a href="/<%= post.category %>/<%= post.slug %>">
+                        <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class=" lazyload">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-list-small__body">
+                    <h3 class="post-list-small__entry-title">
+                      <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                    </h3>
+                  </div>                  
+                </article>
+              </li>
+				<% }) %>
+            </ul> 
+          </div>
+        </div>
+         
+      </section> <!-- end most viewed -->
+		      
+	<!-- Ad Banner 970 -->
+	  <div class="text-center pb-4">
+		<a href="https://mailchi.mp/4555b4dfe837/the-woodward-journal-weekly-digest" target="_blank">
+		  <img src="/img/CTAs/newsletter.jpg" alt="newsletter-call-to-action">
+		</a>
+	  </div> 
+		
+			<script type="text/javascript">
+			amzn_assoc_placement = "adunit0";
+			amzn_assoc_tracking_id = "woodwardjourn-20";
+			amzn_assoc_ad_mode = "search";
+			amzn_assoc_ad_type = "smart";
+			amzn_assoc_marketplace = "amazon";
+			amzn_assoc_region = "US";
+			amzn_assoc_default_search_phrase = "Technology";
+			amzn_assoc_default_category = "Books";
+			amzn_assoc_linkid = "cae26d3a094eb1c0ad77260c1f4e59cf";
+			amzn_assoc_design = "in_content";
+			</script>
+			<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+		
+      <!-- Content Secondary -->
+      <div class="row">
+
+        <!-- Posts -->
+        <div class="col-12 blog__content">
+		
+			
+			<% 
+				var world = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("world")){
+						world.push(post);
+					}
+				})
+			
+				var india = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("india")){
+						india.push(post);
+					}
+				})
+			
+				var business = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("business")){
+						business.push(post);
+					}
+				})
+			
+				var technology = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("technology")){
+						technology.push(post);
+					}
+				})
+			
+				var covid19 = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("covid19")){
+						covid19.push(post);
+					}
+				})
+			
+				var arts_entertainment = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("arts-entertainment")){
+						arts_entertainment.push(post);
+					}
+				})
+			
+				var science = [];
+				delinews.forEach(function(post){
+					if (post.tag.includes("science")){
+						science.push(post);
+					}
+				})
+
+				var sports = [],
+					tag = "sports";
+					delinews.forEach(function(post){
+						if (post.tag.includes(tag)){
+							sports.push(post);
+						}
+					})
+			
+			%>
+          <!-- Posts by Tags -->
+          <section class="section mb-16">
+			<div class="title-wrap title-wrap--line">
+			  <h3 class="section-title text-center">sections</h3>
+			</div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <article class="entry">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/tag/world">world</a>
+                    </li>
+                  </ul>
+					<% world.slice(0, 1).forEach(function(post){ %>
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-75">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                        </li>
+                        <li class="entry__meta-date">
+                          <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+					<% }) %>
+                </article>
+                <ul class="post-list-small post-list-small--3">
+					<% world.slice(1, 4).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-80">
+                          <a href="/<%= post.category %>/<%= post.slug %>">
+                            <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class="lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                          </li>
+                          <li class="entry__meta-date">
+                            <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <article class="entry">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/tag/india">india</a>
+                    </li>
+                  </ul>
+					<% india.slice(0, 1).forEach(function(post){ %>
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-75">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                        </li>
+                        <li class="entry__meta-date">
+                          <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+					<% }) %>
+                </article>
+                <ul class="post-list-small post-list-small--3">
+					<% india.slice(1, 4).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-80">
+                          <a href="/<%= post.category %>/<%= post.slug %>">
+                            <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class="lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                          </li>
+                          <li class="entry__meta-date">
+                            <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <article class="entry">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/tag/business">business</a>
+                    </li>
+                  </ul>
+					<% business.slice(0, 1).forEach(function(post){ %>
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-75">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                        </li>
+                        <li class="entry__meta-date">
+                          <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+					<% }) %>
+                </article>
+                <ul class="post-list-small post-list-small--3">
+					<% business.slice(1, 4).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-80">
+                          <a href="/<%= post.category %>/<%= post.slug %>">
+                            <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class="lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                          </li>
+                          <li class="entry__meta-date">
+                            <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+				
+              <div class="col-md-4">
+                <article class="entry">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/tag/science">science</a>
+                    </li>
+                  </ul>
+					<% science.slice(0, 1).forEach(function(post){ %>
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-75">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                        </li>
+                        <li class="entry__meta-date">
+                          <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+					<% }) %>
+                </article>
+                <ul class="post-list-small post-list-small--3">
+					<% science.slice(1, 4).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-80">
+                          <a href="/<%= post.category %>/<%= post.slug %>">
+                            <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class="lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                          </li>
+                          <li class="entry__meta-date">
+                            <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <article class="entry">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/tag/covid19">COVID-19</a>
+                    </li>
+                  </ul>
+					<% covid19.slice(0, 1).forEach(function(post){ %>
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-75">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                        </li>
+                        <li class="entry__meta-date">
+                          <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+					<% }) %>
+                </article>
+                <ul class="post-list-small post-list-small--3">
+					<% covid19.slice(1, 4).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-80">
+                          <a href="/<%= post.category %>/<%= post.slug %>">
+                            <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class="lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                          </li>
+                          <li class="entry__meta-date">
+                            <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <article class="entry">
+                  <ul class="entry__meta">
+                    <li class="entry__meta-category">
+                      <a href="/tag/sports">sports</a>
+                    </li>
+                  </ul>
+					<% sports.slice(0, 1).forEach(function(post){ %>
+                  <div class="entry__img-holder">
+                    <a href="/<%= post.category %>/<%= post.slug %>">
+                      <div class="thumb-container thumb-75">
+                        <img data-src="<%= post.image %>" src="img/empty.png" class="entry__img lazyload" alt="<%= post.slug %>" />
+                      </div>
+                    </a>
+                  </div>
+                  <div class="entry__body">
+                    <div class="entry__header">
+                      <h2 class="entry__title">
+                        <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                      </h2>
+                      <ul class="entry__meta">
+                        <li class="entry__meta-author">
+                          <span>by</span>
+                          <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                        </li>
+                        <li class="entry__meta-date">
+                          <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+					<% }) %>
+                </article>
+                <ul class="post-list-small post-list-small--3">
+					<% sports.slice(1, 4).forEach(function(post){ %>
+                  <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                      <div class="post-list-small__img-holder">
+                        <div class="thumb-container thumb-80">
+                          <a href="/<%= post.category %>/<%= post.slug %>">
+                            <img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class="lazyload">
+                          </a>
+                        </div>
+                      </div>
+                      <div class="post-list-small__body">
+                        <h3 class="post-list-small__entry-title">
+                          <a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+                        </h3>
+                        <ul class="entry__meta">
+                          <li class="entry__meta-author">
+                            <span>by</span>
+                            <a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+                          </li>
+                          <li class="entry__meta-date">
+                            <%= post.date %> - <%= moment(post.createdAt).fromNow() %>
+                          </li>
+                        </ul>
+                      </div>                  
+                    </article>
+                  </li>
+					<% }) %>
+                </ul>
+              </div>
+            </div>
+          
+          </section> <!-- end news by categories -->
+			
+			
+				<!-- Elrond -->
+		<section class="section">
+		<div class="title-wrap title-wrap--line">
+		  <h3 class="section-title"><a href="/category/elrond">Elrond Foundation</h3>
+		</div>
+			
+			<section class="hero">
+			  <div class="container">
+				<div class="row row-24">
+
+				  <div class="col-xl-7">
+					<!-- Large post -->
+					<div class="hero__item">
+						<% elrond.slice(0, 1).forEach(function(post){ %>
+					  <article class="entry">
+						<div class="entry__img-holder">
+						  <a href="<%= post.category %>/<%= post.slug %>">
+							<img src="<%= post.image %>" alt="<%= post.slug %>" class="entry__img">
+						  </a>
+						</div>
+
+						<div class="entry__body">
+						  <ul class="entry__meta">
+							<li class="entry__meta-category">
+							  <a href="/category/<%= post.category %>"><%= post.category %></a>
+							</li>
+							<li class="entry__meta-date">
+							  <%= post.date %> <%= moment(post.createdAt).fromNow() %>
+							</li>              
+						  </ul>
+						  <h2 class="entry__title">
+							<a href="/<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+						  </h2>                  
+						</div>
+					  </article>
+						<% }) %>
+					</div> <!-- end large post -->
+				  </div> <!-- end col -->
+
+				  <div class="col-xl-5">
+					<ul class="post-list-small post-list-small--2 mb-32">
+						<% elrond.slice(1, 3).forEach(function(post){ %>
+					  <li class="post-list-small__item">
+						<article class="post-list-small__entry clearfix">
+						  <div class="post-list-small__img-holder">
+							<div class="thumb-container thumb-70">
+							  <a href="<%= post.category %>/<%= post.slug %>">
+								<img data-src="<%= post.image %>" src="img/empty.png" alt="<%= post.slug %>" class=" lazyload">
+							  </a>
+							</div>
+						  </div>
+						  <div class="post-list-small__body">
+							<ul class="entry__meta">
+							  <li class="entry__meta-category">
+								<a href="/category/<%= post.category %>"><%= post.category %></a>
+							  </li>
+							  <li class="entry__meta-date">
+								  <%= post.date %> <%= moment(post.createdAt).fromNow() %>
+							  </li>              
+							</ul>
+							<h3 class="post-list-small__entry-title">
+							  <a href="<%= post.category %>/<%= post.slug %>"><%= post.title %></a>
+							</h3>
+						  </div>                  
+						</article>
+					  </li>
+						<% }) %>
+					</ul>
+				  </div> <!-- end col -->         
+
+				</div>
+			  </div>
+			</section> <!-- end hero -->
+			
+	<!-- Ad Banner 970 -->
+	  <div class="text-center">
+		<a href="https://www.instagram.com/woodwardjournal/" target="_blank">
+		  <img src="/img/CTAs/ig.jpg" alt="instagram-call-to-action">
+		</a>
+	  </div> 
+
+
+	  </section> <!-- end Elrond  -->
+
+				
+			
+        </div> <!-- end posts -->
+
+        <!-- Sidebar 1 -->
+      </div> <!-- content secondary -->
+
+    </div> <!-- end main container -->
+
+
+<%- include("./partials/footer") %>

@@ -1,0 +1,74 @@
+<%- include("./partials/header")%>
+
+<br>
+
+    <div class="main-container container" id="main-container">   
+      <!-- Content -->
+      <div class="row">
+        <!-- Posts -->
+        <div class="col-12 blog__content mb-72">
+          <!-- <h1 class="page-title">Search results for: <%= filter.toUpperCase()%></h1> -->
+			  <% posts.forEach(function(post){ %>
+				  <article class="entry card post-list">
+					<div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(<%=post.image%>)">
+					  <a href="/<%= post.category %>/<%= post.slug %>" class="thumb-url"></a>
+					  <img src="<%=post.image%>" alt="<%=post.slug%>" class="entry__img d-none">
+					  <a href="/category/<%=post.category%>" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner"><%=post.category%></a>
+					</div>
+					  
+					<div class="entry__body post-list__body card__body">
+					  <div class="entry__header">
+						<h2 class="entry__title">
+						  <a href="/<%= post.category %>/<%=post.slug%>"><%=post.title%></a>
+						</h2>
+						<ul class="entry__meta">
+						  <li class="entry__meta-author">
+							<span>by</span>
+							<a href="/people/<% if (post.authorSlug) { %><%=post.authorSlug%><% } else {%><%=post.author%><%} %>"><%=post.author%></a>
+						  </li>
+						  <li class="entry__meta-date">
+							<%= post.date%>
+						  </li>
+						</ul>
+					  </div>
+					  <div class="entry__excerpt">
+						<p><%- post.content.replace(/<[^>]+>/g, '').slice(0, 250) %>...</p>
+						  <a class="read-more-button" href="/<%= post.category %>/<%= post.slug %>">Read More...</a>
+					  </div>
+					</div>
+				  </article>
+			  <% }) %>
+			
+			<% if (pages && pages >1){ %>
+			
+          <!-- Pagination -->
+          <nav class="pagination">
+			  <%if (current != 1) {%>
+			<a href="<%=path%>?page=<%= Number(current) - 1 %>" class="pagination__page"><i class="ui-arrow-left"></i></a>
+			  <%} %>
+				<% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
+				<% if (i !== 1) { %>
+				<span class="pagination__page pagination__page--current">...</span>
+				<% } %>
+				<% for (; i <= (Number(current) + 2) && i <= pages; i++) { %>
+				<% if (i == current) { %>
+				<span class="pagination__page pagination__page--current"><%= i %></span>
+				<% } else { %>
+				<a class="pagination__page" href="<%=path%>?page=<%= i %>"><%= i %></a>
+				<% } %>
+				<% if (i == Number(current) + 2 && i < pages) { %>
+				<span class="pagination__page pagination__page--current">...</span>
+				<% } %>
+				<% } %>
+			  <% if (current != pages) {%>
+            <a href="<%=path%>?page=<%= Number(current) + 1 %>" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
+			  <% } %>
+          </nav>
+			
+			<% } %>
+        </div> <!-- end posts -->
+		  
+      </div> <!-- end content -->
+    </div> <!-- end main container -->
+
+<%- include("./partials/footer")%>

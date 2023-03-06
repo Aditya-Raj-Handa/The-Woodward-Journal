@@ -1,0 +1,81 @@
+<%- include("../partials/header") %>
+
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a href="/" class="breadcrumbs__url">Home</a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">
+          New Post
+        </li>
+      </ul>
+    </div>
+
+    <!-- ##### New Area Start ##### -->
+    <section class="contact-area mb-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 col-lg-8">
+                    <!-- Section Heading -->
+                    <div class="section-heading style-2">
+                        <h4>New Post</h4>
+                        <div class="line"></div>
+                    </div>
+                    <!-- Contact Form Area -->
+                    <div class="contact-form-area mt-50">
+                        <form action="/people" method="post" enctype="multipart/form-data">
+							<div class = "row">
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="name">Name*</label>
+										<input type="text" class="form-control" name="author[name]" placeholder="name" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Image*</label>
+										<input type="file" class="form-control" name = "image" accept="image/*" required>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<label for="message">About The Author*</label>
+										<textarea name="author[bio]" class="form-control" cols="30" rows="10" placeholder="content"></textarea>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Author Designation*</label>
+										<input type="text" class="form-control" name = "author[authorDesignation]" placeholder = "designation" required>
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label for="email">Author Mail*</label>
+										<input type="text" class="form-control" name = "author[mail]" placeholder = "mail">
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-foode" type="submitbtn">Send Now</button>
+								</div>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### New Area End ##### -->
+
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+  </script>
+
+
+<%- include("../partials/footer") %>

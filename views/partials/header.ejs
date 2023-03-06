@@ -1,0 +1,431 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="keywords" content="woodward journal, the woodward journal, news, current affairs, activity, commerce, group, report, technology">
+
+	<% if (post) {%>	
+
+	<title><%= post.title %> | Woodward Journal</title>
+	<meta name="description" content="<%- post.content.replace(/<[^>]+>/g, '').slice(0, 200) %>">
+	<!-- Open Graph Tags -->
+	<meta property="og:title" content="<%= post.title %> | Woodward Journal" />
+	<meta property="og:description" content="<%- post.content.replace(/<[^>]+>/g, '').slice(0, 200) %>" />
+	<meta property="og:image" content="<%= post.image %>" />
+	<meta property="og:url" content="http://www.woodwardjournal.com/<%if(post.slug){%><%=post.slug%><%} else {%><%= post._id %><%}%>" />
+	<meta property="og:type" content="website" />
+	<meta property="fb:app_id" content="537475883620164" />
+
+	<% } else if (author) {%> 
+
+	<title>
+		<%=author.name%> - <%= author.authorDesignation %> | The Woodward Journal
+	</title>
+	<meta name="description" content="<%-author.bio.replace(/<[^>]+>/g, '').slice(0, 200) %>">
+	<!-- Open Graph Tags -->
+	<meta property="og:title" content="<%=author.name%> - <%= author.authorDesignation %> | The Woodward Journal" />
+	<meta property="og:description" content="<%-author.bio.replace(/<[^>]+>/g, '').slice(0, 200) %>" />
+	<meta property="og:image" content="<%=author.image%>" />
+	<meta property="og:url" content="http://www.woodwardjournal.com/people/<%=author.slug%>" />
+	<meta property="og:type" content="website" />
+	<meta property="fb:app_id" content="537475883620164" />
+
+	<% } else if (pageTitle!=null) { %>
+
+	<title>
+		<% if (pageTitle=="opinion") {%> Opinion - The Woodward Journal <% } else if (pageTitle=="analysis") {%> Analysis - The Woodward Journal <% } else if (pageTitle=="perspective") {%> Perspective - The Woodward Journal  <% } else if (pageTitle=="news") {%> News - Latest World, India, Sports, Business, Technology News and Coronavirus Updates | The Woodward Journal  <% } else if (pageTitle=="report") {%> Reportage - Latest Reports: World & National News | The Woodward Journal  <% } else if (pageTitle=="review") {%> Review - Movies, TV Shows, Music Albums & Books Reviews | The Woodward Journal  <% } else if (pageTitle=="elrond") {%> Elrond Foundation - The Woodward Journal  <% } else if (pageTitle=="column") {%> Column - The Woodward Journal  <% } else if (pageTitle=="history") {%> History - Ancient, Medieval, Modern, Indian, British, American & World History | The Woodward Journal  <% } else if (pageTitle=="originals") {%> The Woodward Journal Originals <% } else {%> <%= pageTitle %> | The Woodward Journal <% } %>
+	</title>
+		
+	<meta name="description" content="<% if (pageTitle=="About The Journal") {%> Woodward Journal's leadership includes 6 executive members including the founding editors; Sarthak Srivastava, Aditya Raj Handa and Saksham Gadia. Sarthak Srivastava serves as the Managing Editor and Aditya Raj Handa as the Technical Editor. Journal's leadership concludes with 3 members in the editorial panel and more than 30 writers. <% } %><% if (pageTitle=="opinion") {%> Read the latest opinion-based articles on the top news and media headlines from all around the world only on The Woodward Journal <% } %><% if (pageTitle=="analysis") {%> Read the latest analytical articles on the top news and media headlines from all around the world only on The Woodward Journal <% } %><% if (pageTitle=="perspective") {%> Read the latest perception-based articles on the top news and media headlines from all around the world only on The Woodward Journal <% } %><% if (pageTitle=="news") {%> Get the latest news and top headlines and much more only on The Woodward Journal <% } %><% if (pageTitle=="report") {%> Read latest reports on news & media headlines from all around the globe only on The Woodward Journal  <% } %><% if (pageTitle=="review") {%> Read opinion-based, analytical and explaining articles on the latest Movies, TV Shows, Music Albums and Book Reviews only on The Woodward Journal <% } %><% if (pageTitle=="elrond") {%> Elrond Foundation is the volunteer-run youth initiative working towards public health issues, sex education, and spreading awareness on all societal issues.  <% } %><% if (pageTitle=="column") {%> Column is dedicated to guest authors and columnists for highlighting the importance of mental health and emotions. The purpose is to provide valuable instances and insights on life to spread positivity. <% } %><% if (pageTitle=="originals") {%> Read the Journal's research paper, case analyses and flash papers with abstract understanding of the texts. <% } %> ">
+		
+	<!-- Open Graph Tags -->
+	<meta property="og:title" content="<% if (pageTitle=="opinion") {%> Opinion - The Woodward Journal <% } else if (pageTitle=="analysis") {%>Analysis - The Woodward Journal <% } else if (pageTitle=="perspective") {%>Perspective - The Woodward Journal  <% } else if (pageTitle=="news") {%>News - Latest World, India, Sports, Business, Technology News and Coronavirus Updates | The Woodward Journal  <% } else if (pageTitle=="report") {%>Reportage - Latest Reports: World & National News | The Woodward Journal  <% } else if (pageTitle=="review") {%>Review - Movies, TV Shows, Music Albums & Books Reviews | The Woodward Journal  <% } else if (pageTitle=="elrond") {%>Elrond Foundation - The Woodward Journal  <% } else if (pageTitle=="column") {%>Column - The Woodward Journal  <% } else if (pageTitle=="originals") {%> The Woodward Journal Originals <% } else {%> <%= pageTitle %> | The Woodward Journal <% } %> " />
+		
+	<meta property="og:description" content="<% if (pageTitle=="About The Journal") {%> Woodward Journal's leadership includes 6 executive members including the founding editors; Sarthak Srivastava, Aditya Raj Handa and Saksham Gadia. Sarthak Srivastava serves as the Managing Editor and Aditya Raj Handa as the Technical Editor. Journal's leadership concludes with 3 members in the editorial panel and more than 30 writers. <% } %><% if (pageTitle=="opinion") {%> Read the latest opinion-based articles on the top news and media headlines from all around the world only on The Woodward Journal <% } %><% if (pageTitle=="analysis") {%> Read the latest analytical articles on the top news and media headlines from all around the world only on The Woodward Journal <% } %><% if (pageTitle=="perspective") {%> Read the latest perception-based articles on the top news and media headlines from all around the world only on The Woodward Journal <% } %><% if (pageTitle=="news") {%> Get the latest news and top headlines and much more only on The Woodward Journal <% } %><% if (pageTitle=="report") {%> Read latest reports on news & media headlines from all around the globe only on The Woodward Journal  <% } %><% if (pageTitle=="review") {%> Read opinion-based, analytical and explaining articles on the latest Movies, TV Shows, Music Albums and Book Reviews only on The Woodward Journal <% } %><% if (pageTitle=="elrond") {%> Elrond Foundation is the volunteer-run youth initiative working towards public health issues, sex education, and spreading awareness on all societal issues.  <% } %><% if (pageTitle=="column") {%> Column is dedicated to guest authors and columnists for highlighting the importance of mental health and emotions. The purpose is to provide valuable instances and insights on life to spread positivity. <% } %><% if (pageTitle=="originals") {%> Read the Journal's research paper, case analyses and flash papers with abstract understanding of the texts. <% } %> ">
+		
+	<meta property="og:image" content="http://www.woodwardjournal.com/img/WJ-black.png" />
+	<meta property="og:url" content="<% if (pageTitle=="About The Journal") {%> http://www.woodwardjournal.com/about <% } else {%> http://www.woodwardjournal.com/category/<% pageTitle %> <% } %>" />
+	<meta property="og:type" content="website" />
+	<meta property="fb:app_id" content="537475883620164" />
+
+
+	<% } else { %>
+
+	<title>Woodward Journal: Breaking News, Opinions, Analysis & Multimedia | The Woodward Journal</title>
+	<meta name="description" content="The Woodward Journal offers Breaking & World News Headlines and updates covering of Latest & Top Stories of World & India. Find & Read Multimedia, Reviews, Analysis, Perspective & Opinion on Economics, Sports, Movies, Entertainment, Politics, Science and Tech, Gender, Culture and Coronavirus Updates at Woodward Journal.">
+	<!-- Open Graph Tags -->
+	<meta property="og:title" content="Woodward Journal: Breaking News, Opinions, Analysis & Multimedia | The Woodward Journal" />
+	<meta property="og:description" content="The Woodward Journal offers Breaking & World News Headlines and updates covering of Latest & Top Stories of World & India. Find & Read Multimedia, Reviews, Analysis, Perspective & Opinion on Economics, Sports, Movies, Entertainment, Politics, Science and Tech, Gender, Culture and Coronavirus Updates at Woodward Journal." />
+	<meta property="og:image" content="http://www.woodwardjournal.com/img/WJ-black.png" />
+	<meta property="og:url" content="http://www.woodwardjournal.com" />
+	<meta property="og:type" content="website" />
+	<meta property="fb:app_id" content="537475883620164" />
+
+	<% } %>
+
+	<!-- Instant Articles -->
+	<meta property="fb:pages" content="105048837750924" />
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166316504-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-166316504-1');
+	</script>
+
+
+	<!--Google AdSense Code-->
+	<script data-ad-client="ca-pub-9378110305923428" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+		
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700%7CSource+Sans+Pro:400,600,700' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+
+	<!-- Css -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/font-icons.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/colors/gray.css" />
+
+	<link rel="icon" href="/img/WJ-black.png" media="(prefers-color-scheme:no-preference)">
+	<link rel="icon" href="/img/WJ-white.png"  media="(prefers-color-scheme:dark)">
+	<link rel="icon" href="/img/WJ-black.png" media="(prefers-color-scheme:light)">
+
+	<!-- Lazyload (must be placed in head in order to work) -->
+	<script src="/js/lazysizes.min.js"></script>
+
+	<!-- TinyMCE	 -->
+	<script src="https://cdn.tiny.cloud/1/dt7kdimr6ofv3tovvgncq974gs0tqd78zvglfndhcfg22srm/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		
+	<!-- media.net ads -->
+	<script type="text/javascript">
+		window._mNHandle = window._mNHandle || {};
+		window._mNHandle.queue = window._mNHandle.queue || [];
+		medianet_versionId = "3121199";
+	</script>
+	<script src="https://contextual.media.net/dmedianet.js?cid=8CUR12T13" async="async"></script>
+</head>
+	
+<%
+	// var news = [];
+	// delinews.forEach(function(post){
+	// 	if (post.category == "news"){
+	// 		news.push(post);
+	// 	}
+	// })
+		  
+	// var opinion = [];
+	// delinews.forEach(function(post){
+	// 	if (post.category == "opinion"){
+	// 		opinion.push(post);
+	// 	}
+	// })
+		  
+	// var elrond = [];
+	// delinews.forEach(function(post){
+	// 	if (post.category == "elrond"){
+	// 		elrond.push(post);
+	// 	}
+	// })
+		  
+	// var column = [];
+	// delinews.forEach(function(post){
+	// 	if (post.category == "column"){
+	// 		column.push(post);
+	// 	}
+	// })
+		  
+	// var analysis = [];
+	// delinews.forEach(function(post){
+	// 	if (post.category == "analysis"){
+	// 		analysis.push(post);
+	// 	}
+	// })
+		  
+	// var history = [];
+	// delinews.forEach(function(post){
+	// 	if (post.category == "history"){
+	// 		history.push(post);
+	// 	}
+	// })
+		  
+		  
+%>
+
+<body class="bg-light style-default">
+
+	<!-- Facebook SDK -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
+
+
+  <!-- Preloader -->
+  <div class="loader-mask">
+	<div class="loader">
+	  <div></div>
+	</div>
+  </div>
+
+  <!-- Bg Overlay -->
+  <div class="content-overlay"></div>
+
+  <!-- Sidenav -->    
+  <header class="sidenav" id="sidenav">
+
+	<!-- close -->
+	<div class="sidenav__close">
+	  <button class="sidenav__close-button" id="sidenav__close-button" aria-label="close sidenav">
+		<i class="ui-close sidenav__close-icon"></i>
+	  </button>
+	</div>
+
+	<!-- Nav -->
+	<nav class="sidenav__menu-container">
+	  <ul class="sidenav__menu" role="menubar">
+		<li>
+		  <a href="/" class="sidenav__menu-url">HOME</a>
+		</li>
+		<% if(user){ %>
+		<li>
+		  <a href="#" class="sidenav__menu-url">USER ACCESS</a>
+		  <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
+		  <ul class="sidenav__menu-dropdown">
+			<li><a class="sidenav__menu-url" href="/logout">LOGOUT</a></li>
+			<li><a href="/new" class="sidenav__menu-url">NEW POST</a></li>
+		<% if (user.username == "admin" || user.username == "editor") {%>
+			<% if (user.username == "admin") { %> <li><a href="/drafts" class="sidenav__menu-url">All Drafts</a></li> <% } %>
+			<li><a href="/drafts/department-1" class="sidenav__menu-url">Newsroom 1 - News</a></li>
+			<li><a href="/drafts/department-2" class="sidenav__menu-url">Newsroom 2 - Movies & TV</a></li>
+			<li><a href="/drafts/department-3" class="sidenav__menu-url">Newsroom 3 - Elrond</a></li>
+			<li><a href="/drafts/department-4" class="sidenav__menu-url">Newsroom 4 - OP-ED</a></li>
+			<li><a href="/drafts/department-5" class="sidenav__menu-url">Newsroom 5 - Features</a></li>
+			<li><a href="/drafts/department-6" class="sidenav__menu-url">Newsroom 6 - Special Projects</a></li>
+		<% } %>
+		  </ul>
+		</li>
+		<% } %>
+		<li>
+		  <a href="/category/news" class="sidenav__menu-url">NEWS</a>
+		</li>
+		<li>
+		  <a href="/category/opinion" class="sidenav__menu-url">OPINION</a>
+		</li>
+		<li>
+		  <a href="/category/perspective" class="sidenav__menu-url">PERSPECTIVE</a>
+		</li>
+		<li>
+		  <a href="/category/analysis" class="sidenav__menu-url">ANALYSIS</a>
+		</li>
+		<li>
+		  <a href="/category/report" class="sidenav__menu-url">REPORT</a>
+		</li>
+		<li>
+		  <a href="/category/review" class="sidenav__menu-url">REVIEW</a>
+		</li>
+		<li>
+		  <a href="/category/history" class="sidenav__menu-url">HISTORY</a>
+		</li>
+		<li>
+		  <a href="/category/column" class="sidenav__menu-url">COLUMN</a>
+		</li>
+        <li>
+          <a href="#" class="sidenav__menu-url">EXPLORE</a>
+          <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i class="ui-arrow-down"></i></button>
+          <ul class="sidenav__menu-dropdown">
+			<li><a href="/tag/world" class="sidenav__menu-url">WORLD</a></li>
+			<li><a href="/tag/india" class="sidenav__menu-url">INDIA</a></li>
+			<li><a href="/tag/covid19" class="sidenav__menu-url">CORONAVIRUS</a></li>
+			<li><a href="/tag/business" class="sidenav__menu-url">BUSINESS</a></li>
+			<li><a href="/tag/sports" class="sidenav__menu-url">SPORTS</a></li>
+			<li><a href="/tag/arts-entertainment" class="sidenav__menu-url">ART & ENTERTAINMENT</a></li>
+			<li><a href="/tag/science" class="sidenav__menu-url">SCIENCE</a></li>
+			<li><a href="/tag/tech" class="sidenav__menu-url">TECH</a></li>
+			<li><a href="/tag/lifestyle" class="sidenav__menu-url">LIFESTYLE</a></li>
+			<li><a href="/tag/food" class="sidenav__menu-url">FOOD</a></li>
+          </ul>
+        </li>
+		<li>
+		  <a href="/category/elrond" class="sidenav__menu-url">ELROND FOUNDATION</a>
+		</li>
+	  </ul>
+	</nav>
+
+	<div class="socials sidenav__socials"> 
+	  <a class="social social-facebook" href="https://www.facebook.com/woodwardjournal" target="_blank" aria-label="facebook">
+		<i class="ui-facebook"></i>
+	  </a>
+	  <a class="social social-twitter" href="https://twitter.com/thewoodwardjo" target="_blank" aria-label="twitter">
+		<i class="ui-twitter"></i>
+	  </a>
+	  <a class="social social-instagram" href="https://www.instagram.com/woodwardjournal/" target="_blank" aria-label="instagram">
+		<i class="ui-instagram"></i>
+	  </a>
+	  <a class="social social-linkedin" href="https://www.linkedin.com/company/the-woodward-journal" target="_blank" aria-label="linkedin">
+		<i class="ui-linkedin"></i>
+	  </a>
+	</div>
+  </header> <!-- end sidenav -->
+
+  <main class="main oh" id="main">
+
+    <!-- Header -->
+    <header class="header d-lg-block d-none">
+      <div class="container">
+        <div class="flex-parent">
+      
+          <!-- Menu -->
+          <nav class="flex-child header__menu d-none d-lg-block">
+            <ul class="header__menu-list">
+              <li><script>
+						// var today = new Date(),
+						// 	dd = String(today.getDate()).padStart(2, '0'),
+						// 	mm = today.getMonth(),//January is 0!
+						// 	yyyy = today.getFullYear(),
+						// 	day = today.getDay(),
+						// 	days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Tursday", "Friday", "Saturday"],
+						// 	months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; 
+						// today = months[mm] + ' ' + dd + ', ' + yyyy;
+						// document.write(today);
+				  </script>
+				  <br>
+				  <script>
+				  // document.write(days[day]);
+				  </script></li>
+            </ul>
+          </nav>
+			<!-- end menu -->
+
+          <div class="flex-child text-center">
+            <!-- Logo -->
+            <a href="/" class="logo">
+              <img class="logo__img" src="/img/logo.png" srcset="/img/logo.png 1x, /img/logo.png 2x" alt="logo"><!--<h1 class="logo text-dark">The Woodward Journal</h1> -->
+            </a>
+          </div>
+
+          <!-- Socials -->
+          <div class="flex-child">
+            <div class="socials socials--nobase socials--light justify-content-end"> 
+			  <a class="social social-facebook" href="https://www.facebook.com/woodwardjournal" target="_blank" aria-label="facebook">
+				<i class="ui-facebook"></i> 
+			  </a>
+			  <a class="social social-twitter" href="https://twitter.com/thewoodwardjo" target="_blank" aria-label="twitter">
+				<i class="ui-twitter"></i> 
+			  </a>
+			  <a class="social social-instagram" href="https://www.instagram.com/woodwardjournal/" target="_blank" aria-label="instagram">
+				<i class="ui-instagram"></i> 
+			  </a>
+			  <a class="social social-linkedin" href="https://www.linkedin.com/company/the-woodward-journal" target="_blank" aria-label="linkedin">
+				<i class="ui-linkedin"></i> 
+			  </a>
+            </div>
+          </div>
+
+        </div>
+      </div> <!-- end container -->
+    </header> <!-- end header -->   
+
+    <!-- Navigation -->
+    <header class="nav nav--1">
+      <div class="nav__holder nav--sticky">
+        <div class="container relative">
+          <div class="flex-parent">
+
+            <div class="flex-child">
+              <!-- Side Menu Button -->
+              <button class="nav-icon-toggle" id="nav-icon-toggle" aria-label="Open side menu">
+                <span class="nav-icon-toggle__box">
+                  <span class="nav-icon-toggle__inner"></span>
+                </span>
+              </button>
+            </div>            
+
+            <!-- Nav-wrap -->
+            <nav class="flex-child nav__wrap d-none d-lg-block">              
+              <ul class="nav__menu">
+				<li>
+				  <a href="/" class="sidenav__menu-url">HOME</a>
+				</li>
+				<!-- Categories -->
+				<li>
+				  <a href="/category/opinion" class="sidenav__menu-url">OPINION</a>
+				</li>
+				<li>
+				  <a href="/category/analysis" class="sidenav__menu-url">ANALYSIS</a>
+				</li>
+				<li>
+				  <a href="/category/review" class="sidenav__menu-url">REVIEW</a>
+				</li>
+				<li>
+				  <a href="/category/report" class="sidenav__menu-url">REPORT</a>
+				</li>
+				<li>
+				  <a href="/category/perspective" class="sidenav__menu-url">PERSPECTIVE</a>
+				</li>
+				<li>
+				  <a href="/category/elrond" class="sidenav__menu-url">ELROND</a>
+				</li>
+				<% if (user) {%>
+				<li>
+				  <a href="/new" class="sidenav__menu-url">New Post</a>
+				</li>
+				<% if (user.username == "admin" || user.username == "editor") {%>
+				<li class="nav__dropdown">
+				<% if (user.username == "admin") {%>
+                  <a href="/drafts">drafts</a>
+				<% } else { %>
+                  <a href="#">drafts</a>
+				<% } %>
+                  <ul class="nav__dropdown-menu">
+                    <li><a href="/drafts/department-1">Newsroom 1 - News</a></li>
+                    <li><a href="/drafts/department-2">Newsroom 2 - Movies & TV</a></li>
+                    <li><a href="/drafts/department-3">Newsroom 3 - Elrond</a></li>
+                    <li><a href="/drafts/department-4">Newsroom 4 - OP-ED</a></li>
+                    <li><a href="/drafts/department-5">Newsroom 5 - Features</a></li>
+                    <li><a href="/drafts/department-6">Newsroom 6 - Special Projects</a></li>
+                  </ul>
+                </li>
+				<% }} %>
+              </ul> <!-- end menu -->
+            </nav> <!-- end nav-wrap -->
+
+            <!-- Logo Mobile -->
+            <a href="/" class="logo logo-mobile d-lg-none">
+              <img class="logo__img" src="/img/logo.png" srcset="/img/logo.png 1x, /img/logo.png 2x" alt="logo">
+            </a>
+
+            <!-- Nav Right -->
+            <div class="flex-child">
+              <div class="nav__right">
+
+                <!-- Search -->
+                <div class="nav__right-item nav__search">
+                  <a href="#" class="nav__search-trigger" id="nav__search-trigger">
+                    <i class="ui-search nav__search-trigger-icon"></i>
+                  </a>
+                  <div class="nav__search-box" id="nav__search-box">
+                    <form action="/search" method="get" class="nav__search-form">
+                      <input type="text" name="search" placeholder="Search an article" class="nav__search-input">
+                      <button type="submit" class="search-button btn btn-lg btn-color btn-button">
+                        <i class="ui-search nav__search-icon"></i>
+                      </button>
+                    </form>
+                  </div>                
+                </div>             
+
+              </div> <!-- end nav right -->
+            </div>            
+          
+          </div> <!-- end flex-parent -->
+
+        </div>          
+      </div>
+    </header> <!-- end navigation -->
+	  
+	  
+	  

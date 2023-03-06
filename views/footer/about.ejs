@@ -1,0 +1,94 @@
+<%- include("../partials/header") %>
+
+
+<% 
+	
+	var sarthakSrivastava = []
+	authors.forEach(function(author){
+		if (author.slug == "sarthak-srivastava"){
+			sarthakSrivastava.push(author);
+		}
+	});
+
+	var adityaRajHanda = []
+	authors.forEach(function(author){
+		if (author.name == "Aditya Raj Handa"){
+			adityaRajHanda.push(author);
+		}
+	});
+
+	var sakshamGadia = []
+	authors.forEach(function(author){
+		if (author.name == "Saksham Gadia"){
+			sakshamGadia.push(author);
+		}
+	});
+
+	var nehalLala = []
+	authors.forEach(function(author){
+		if (author.name == "Nehal Lala"){
+			nehalLala.push(author);
+		}
+	});
+
+	var arshiyaMahajan = []
+	authors.forEach(function(author){
+		if (author.name == "Arshiya Mahajan"){
+			arshiyaMahajan.push(author);
+		}
+	});
+
+	var divijHanda = []
+	authors.forEach(function(author){
+		if (author.name == "Divij Handa"){
+			divijHanda.push(author);
+		}
+	});
+
+	var manitBansal = []
+	authors.forEach(function(author){
+		if (author.name == "Manit Bansal"){
+			manitBansal.push(author);
+		}
+	});
+
+%>
+
+    <!-- ##### Blog Content Area Start ##### -->
+    <section class="blog-content-area p-4 m-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Blog Posts Area -->
+                <div class="col-12 col-lg-12">
+                    <div class="blog-posts-area">
+
+                        <!-- Post Details Area -->
+                        <div class="single-post-details-area">
+                            <div class="post-content">
+                                <p>
+									<h5>Note from the Founding Editors </h5><br>
+									<i>‘Democracy Drives On Dissent’.</i><br><br>
+									The Editorial of The Woodward Journal recognizes how remarkably challenging it has become to access the unfiltered aspects of the world progressing towards an uncertain ruthlessness, keeping in dark its citizens today more than ever. <br><br>
+									With this particular notion in line, The Woodward Journal adopts an independent approach in its operation and chooses to propagate the principle of a free and unbiased press, untainted by all forms of political inclinations.<br><br> 
+									Our purposed foundation strictly remains to be a centralist and to promulgate the narratives which lie in the best interests of the concerned audiences. However, we are not motivated by any propaganda derived from vested interests or conceptions or personal biases.<br><br>
+									As far as the published stories are concerned, all the facts within an article are checked prior to the release and the pieces are firmly backed by the journal and its editorial. <br><br>
+									In case of any contentions regarding the excerpts on our social media handle, we would strongly recommend the reader to read the entire article on the website to avoid any misconceptions in their judgments. However, if the issue still persists, then the disapprover shall feel free to mail us at <a href="mailto:support@woodwardjournal.com">support@woodwardjournal.com</a><br><br>
+									The purposed foundation is to refuse to be held back and vow to thrive on our visions premised on the true spirited essence of the free press.<br><br>
+									<b>Sarthak Srivastava</b><br>
+									<i>Managing Editor</i><br>
+									<b>Aditya Raj Handa</b><br>
+									<i>Technical Editor</i><br>
+									<b>Saksham Gadia</b><br><br>
+									<b>Founding Editors of The Woodward Journal.</b>
+								</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		<hr><br>
+        </div>
+    </section>
+
+
+<%- include("../partials/footer") %>
